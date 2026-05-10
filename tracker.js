@@ -31,6 +31,11 @@
     if (t.trim()) localStorage.setItem(k('note', id), t);
     else localStorage.removeItem(k('note', id));
   }
+  function getCollapse(id) { return localStorage.getItem(k('collapse', id)) === 'true'; }
+  function setCollapse(id, v) {
+    if (v) localStorage.setItem(k('collapse', id), 'true');
+    else localStorage.removeItem(k('collapse', id));
+  }
 
   function makeCheckbox(id, big) {
     const wrap = document.createElement('label');
@@ -191,6 +196,32 @@
       wrap.appendChild(makeNotePill(id));
       head.appendChild(wrap);
       if (getCheck(id)) card.classList.add('item-done');
+
+      // Wire collapse toggle (button is already in template)
+      const toggle = head.querySelector('.task-toggle');
+      const icon = toggle ? toggle.querySelector('.toggle-icon') : null;
+      function applyCollapseState(collapsed) {
+        card.classList.toggle('collapsed', collapsed);
+        if (icon) icon.textContent = collapsed ? '+' : '−';
+      }
+      // Restore persisted state
+      applyCollapseState(getCollapse(id));
+
+      if (toggle) {
+        toggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const newCollapsed = !card.classList.contains('collapsed');
+          applyCollapseState(newCollapsed);
+          setCollapse(id, newCollapsed);
+        });
+      }
+      // Click anywhere on the head (when collapsed) to expand — but skip checkbox/note/copy buttons
+      head.addEventListener('click', (e) => {
+        if (!card.classList.contains('collapsed')) return;
+        if (e.target.closest('.ff-check, .ff-note-pill, .task-toggle, button, a, input, label')) return;
+        applyCollapseState(false);
+        setCollapse(id, false);
+      });
     });
 
     // End-of-day checklist items
@@ -244,6 +275,9 @@
         <div class="ff-prog-bar"><div class="ff-prog-fill"></div></div>
       </div>
       <div class="ff-statusbar-actions">
+        <button class="ff-collapse-all" type="button" title="Collapse all task cards on this page">▴ Collapse all</button>
+        <button class="ff-expand-all" type="button" title="Expand all task cards">▾ Expand all</button>
+        <span class="ff-statusbar-divider"></span>
         <button class="ff-export" type="button" title="Export ALL progress + notes (across all pages)">⬇ Export</button>
         <button class="ff-import" type="button" title="Import progress from JSON file">⬆ Import</button>
         <button class="ff-reset" type="button" title="Clear progress on this page only">↻ Reset page</button>
@@ -316,6 +350,20 @@
       });
       input.click();
     });
+
+    function applyAllCollapse(collapsed) {
+      document.querySelectorAll('.task').forEach((card, i) => {
+        const id = 'task-' + (i + 1);
+        card.classList.toggle('collapsed', collapsed);
+        const icon = card.querySelector('.toggle-icon');
+        if (icon) icon.textContent = collapsed ? '+' : '−';
+        setCollapse(id, collapsed);
+      });
+    }
+    const collapseAllBtn = bar.querySelector('.ff-collapse-all');
+    const expandAllBtn = bar.querySelector('.ff-expand-all');
+    if (collapseAllBtn) collapseAllBtn.addEventListener('click', () => applyAllCollapse(true));
+    if (expandAllBtn) expandAllBtn.addEventListener('click', () => applyAllCollapse(false));
 
     bar.querySelector('.ff-reset').addEventListener('click', () => {
       if (!confirm('Clear all progress + notes on THIS page? (Other pages unaffected.)')) return;
