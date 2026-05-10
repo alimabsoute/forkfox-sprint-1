@@ -417,3 +417,182 @@ footer {
   .header h1 { font-size: 22px; }
   .toolbar { flex-direction: column; align-items: stretch; }
 }
+
+/* ===== TRACKER (checkbox + notes) ===== */
+.ff-statusbar {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: -16px 0 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.ff-statusbar-progress { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 220px; }
+.ff-prog-label { font-size: 12px; color: #666; }
+.ff-prog-count { font-size: 13px; font-weight: 700; color: #1A1A2E; }
+.ff-prog-count .ff-prog-done { color: #FA2A52; }
+.ff-prog-bar { flex: 1; min-width: 80px; max-width: 260px; height: 8px; background: #EEEEEE; border-radius: 100px; overflow: hidden; }
+.ff-prog-fill { height: 100%; background: linear-gradient(90deg, #FA2A52, #FF6B7A); border-radius: 100px; transition: width 0.3s; }
+.ff-statusbar-actions { display: flex; gap: 6px; }
+.ff-statusbar-actions button {
+  background: #1A1A2E;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.ff-statusbar-actions button:hover { background: #FA2A52; }
+.ff-statusbar-actions .ff-reset { background: #888; }
+.ff-statusbar-actions .ff-reset:hover { background: #FA2A52; }
+
+.ff-task-controls, .ff-field-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.ff-inline-controls { display: inline-flex; align-items: center; gap: 6px; margin-right: 8px; }
+
+.ff-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid #1A1A2E;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #FFFFFF;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.ff-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.ff-check.checked { background: #2DB67C; border-color: #2DB67C; }
+.ff-check.checked::after { content: "✓"; color: #FFFFFF; font-weight: 700; font-size: 14px; line-height: 1; }
+.ff-check-big { width: 26px; height: 26px; }
+.ff-check-big.checked::after { font-size: 16px; }
+.ff-check:hover { border-color: #FA2A52; }
+
+.ff-note-pill {
+  background: #F0F0F0;
+  border: 1px solid #DDDDDD;
+  color: #888;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s;
+  font-family: -apple-system, system-ui, sans-serif;
+  flex-shrink: 0;
+}
+.ff-note-pill:hover { background: #FFFFFF; border-color: #FA2A52; color: #FA2A52; }
+.ff-note-pill .ff-note-icon { font-size: 12px; }
+.ff-note-pill .ff-note-count { font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+.ff-note-pill.has-note { background: #FFF1F4; border-color: #FA2A52; color: #FA2A52; }
+.ff-note-pill.has-note .ff-note-count { color: #FA2A52; }
+
+.ff-note-popover {
+  width: 320px;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  z-index: 9999;
+  font-family: -apple-system, system-ui, sans-serif;
+  overflow: hidden;
+}
+.ff-note-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #1A1A2E;
+  color: #FFFFFF;
+}
+.ff-note-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FA2A52; }
+.ff-note-close {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.ff-note-close:hover { color: #FA2A52; }
+.ff-note-text {
+  width: 100%;
+  border: none;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: -apple-system, system-ui, sans-serif;
+  resize: vertical;
+  min-height: 110px;
+  background: #FAFAFA;
+  outline: none;
+  box-sizing: border-box;
+  color: #1A1A2E;
+}
+.ff-note-text:focus { background: #FFFFFF; }
+.ff-note-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-top: 1px solid #EEEEEE;
+  gap: 10px;
+}
+.ff-note-actions button {
+  background: #1A1A2E;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ff-note-actions .ff-note-clear { background: #DDDDDD; color: #555; }
+.ff-note-actions .ff-note-clear:hover { background: #999; color: #FFFFFF; }
+.ff-note-actions .ff-note-save:hover { background: #FA2A52; }
+.ff-note-status { font-size: 11px; color: #2DB67C; font-weight: 600; flex: 1; text-align: center; }
+
+/* Step list adjustments — hide the pseudo-checkbox once tracker decorates */
+.step-list li.ff-step-item { padding-left: 36px; }
+.step-list li.ff-step-item::before { display: none; }
+.step-list li.ff-step-item .ff-step-check { position: absolute; left: 4px; top: 8px; width: 18px; height: 18px; }
+.step-list li.ff-step-item .ff-step-check.checked::after { font-size: 12px; }
+
+/* End-of-day list adjustments */
+.eod ul li.ff-eod-item { padding-left: 0; display: flex; align-items: center; gap: 4px; }
+.eod ul li.ff-eod-item::before { display: none; }
+.eod ul li.ff-eod-item .ff-check {
+  background: transparent;
+  border-color: rgba(255,255,255,0.5);
+  width: 18px;
+  height: 18px;
+}
+.eod ul li.ff-eod-item .ff-check.checked { background: #2DB67C; border-color: #2DB67C; }
+.eod ul li.ff-eod-item .ff-note-pill { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); }
+.eod ul li.ff-eod-item .ff-note-pill:hover { background: #FFFFFF; color: #FA2A52; }
+.eod ul li.ff-eod-item .ff-note-pill.has-note { background: #FA2A52; border-color: #FA2A52; color: #FFFFFF; }
+
+/* When item complete, dim it slightly */
+.task.item-done .task-title, .field-card.item-done .field-label { opacity: 0.55; }
+.task.item-done { background: #FAFFFA; border-color: #C5E5C5; }
+.field-card.item-done { background: #FAFFFA; border-color: #C5E5C5; }
