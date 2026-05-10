@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DM WAVE 4 — TIER B ROWS 21-30 · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 11 (Content From Intel)</a>
+  <div class="eyebrow">Day 11 · Field Reference</div>
+  <h1>Dm Wave 4 — Tier B Rows 21-30</h1>
+  <div class="subtitle">Final DM batch, brings cumulative to 30</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    <br>Sign in with: <strong>ali@forkfox.ai (Email) / personal IG (DMs)</strong>
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Header</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">For Tier B rows 21-30, open _assets/influencer_database.csv → filter to
+tier=B and 'verified' from Day 2.
+
+Use the SAME template as Wave 1-3 above (see dm-templates.html for the
+full text). The only thing that changes: the recipient handle, name, and
+the [SPECIFIC RESTAURANT] reference.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Workflow</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Open the CSV. Pick rows 21-30 of verified Tier B.
+2. For each handle, open https://www.instagram.com/[handle]/.
+3. Find their most recent food post.
+4. Open the wave 1 template (dm-templates.html). Copy. Customize.
+5. Send. Log in tracker.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">If Fewer Than 10 Verified Tier B</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block warn">If Day 2 verification only marked 5-7 handles as 'verified', send to those
+fewer than 10. DO NOT send to unverified handles — they may not be real
+Philly food accounts and will hurt your DM reply-rate baseline.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Target</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Cumulative DMs by end of Day 11: 30 across waves 1-4.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 11</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

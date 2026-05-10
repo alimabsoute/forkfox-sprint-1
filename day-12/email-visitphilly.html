@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMAIL: VISIT PHILLY · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 12 (Press + Partnerships)</a>
+  <div class="eyebrow">Day 12 · Field Reference</div>
+  <h1>Email: Visit Philly</h1>
+  <div class="subtitle">Tourism partnership pitch (full email body)</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Header</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">From: ali@forkfox.ai
+To: partnerships@visitphilly.com
+Subject: ForkFox: dish-level data for Visit Philly's food coverage</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Verbatim)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Hi Visit Philly partnerships team,
+
+I'm Ali, co-founder of ForkFox — an AI that scores individual dishes at Philadelphia restaurants. As of May 2026 we've scored 3,600+ dishes across Center City, South Philly, Fishtown, East Passyunk, the Italian Market, and surrounding neighborhoods.</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">A few ways I think this could be useful for Visit Philly</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Curated dish lists by neighborhood for visitor itineraries (e.g. \u0027top 5 dishes in East Passyunk under $25\u0027)\n- Data feeds for Visit Philly\u0027s editorial team\n- Co-branded content highlighting under-the-radar dishes at well-known restaurants")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Curated dish lists by neighborhood for visitor itineraries (e.g. 'top 5 dishes in East Passyunk under $25')
+- Data feeds for Visit Philly's editorial team
+- Co-branded content highlighting under-the-radar dishes at well-known restaurants</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">No cost, no commercial ask — we're in iOS TestFlight beta and the priority is getting the data in front of people who care about Philly food. Happy to share a sample dish-level dataset or hop on a 15-min call.
+
+Thanks,
+Ali Mabsoute
+ForkFox  ·  forkfox.ai  ·  ali@forkfox.ai</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Sending</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Log in tracker → Press tab: outlet, date sent, status.
+2. Set a reminder for 7 days from now to follow up if no response.
+3. If they reply YES to a partnership conversation, schedule a 30-min call.
+4. If they reply NO or with caveats, ask: "Is there a better time to revisit?"
+   Sometimes "not now" means "not next quarter."</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Why This Angle Works</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Visit Philly is a tourism agency. Their KPI is visitor satisfaction +
+length of stay. Dish-level recommendations directly help both — visitors
+who order well have better trips and recommend the city to friends.
+
+Pitch is about THEIR audience benefiting, not ForkFox getting press.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 12</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

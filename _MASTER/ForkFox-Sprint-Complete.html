@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ForkFox 14-Day Acquisition Sprint — Complete Package</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #1A1A2E;
+  background: #FFFFFF;
+  line-height: 1.55;
+  font-size: 13px;
+}
+.book { max-width: 920px; margin: 0 auto; padding: 0 32px 64px; }
+
+/* Cover */
+.cover {
+  height: 100vh;
+  background: linear-gradient(135deg, #0E0E20 0%, #1A1A2E 50%, #221F3F 100%);
+  color: #FFFFFF;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 -32px 0;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  top: -30%; right: -15%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(250,42,82,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cover > * { position: relative; z-index: 1; }
+.cover .eyebrow { color: #FA2A52; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; }
+.cover h1 { font-size: 68px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 12px; }
+.cover .subhead { font-size: 28px; color: #FA2A52; font-weight: 700; margin-bottom: 24px; }
+.cover .meta { font-size: 16px; color: rgba(255,255,255,0.7); margin-top: auto; padding-top: 60px; }
+.cover .meta strong { color: #FA2A52; }
+
+/* TOC */
+.toc { padding: 40px 0; page-break-after: always; }
+.toc h2 { font-size: 28px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #FA2A52; }
+.toc-section { margin-bottom: 24px; }
+.toc-section h3 { font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: #FA2A52; margin-bottom: 10px; }
+.toc-section ul { list-style: none; padding-left: 0; }
+.toc-section li { padding: 4px 0; font-size: 14px; }
+.toc-section li a { color: #1A1A2E; text-decoration: none; }
+.toc-section li a:hover { color: #FA2A52; }
+.toc-section li .num { color: #FA2A52; font-weight: 700; min-width: 50px; display: inline-block; }
+
+/* Exec summary */
+.exec { padding: 30px 0 60px; page-break-after: always; }
+.exec h2 { font-size: 24px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #FA2A52; }
+.exec p { font-size: 14px; margin-bottom: 12px; line-height: 1.7; }
+.exec .callout { background: #FFF1F4; border-left: 4px solid #FA2A52; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+
+/* Day sections */
+.day-section { padding: 40px 0; page-break-before: always; }
+.day-header { background: #1A1A2E; color: #FFFFFF; padding: 24px 28px; border-radius: 8px; margin-bottom: 24px; }
+.day-eyebrow { color: #FA2A52; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+.day-header h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+.day-meta { color: rgba(255,255,255,0.65); font-size: 13px; }
+
+.day-focus { background: #FFF1F4; border-left: 4px solid #FA2A52; padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 22px; font-size: 13px; }
+
+.task-block { background: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; page-break-inside: avoid; }
+.task-block h3 { font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.task-num { background: #1A1A2E; color: #FFFFFF; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.task-time { background: #FA2A52; color: #FFFFFF; padding: 2px 8px; border-radius: 100px; font-size: 10px; font-weight: 700; margin-left: auto; }
+.task-intro { color: #555; font-size: 12px; margin-bottom: 10px; }
+.task-steps { padding-left: 24px; font-size: 12px; line-height: 1.6; }
+.task-steps li { margin-bottom: 4px; }
+.task-steps strong { color: #FA2A52; }
+.task-steps code { background: #F0F0F0; padding: 1px 4px; border-radius: 2px; font-family: monospace; font-size: 11px; }
+.warn-block, .note-block, .expected-block {
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+  font-size: 11px;
+  margin-top: 10px;
+}
+.warn-block { background: #FFF1F4; border-left: 3px solid #FA2A52; color: #8B1A33; }
+.warn-block::before { content: "⚠ CAUTION: "; font-weight: 700; }
+.note-block { background: #F0F4FF; border-left: 3px solid #4B6FFF; color: #2A3F8F; }
+.note-block::before { content: "NOTE: "; font-weight: 700; }
+.expected-block { background: #FFFAF5; border-left: 3px solid #FFB347; color: #6B4D1F; }
+
+.day-checklist { background: #1A1A2E; color: #FFFFFF; padding: 18px 22px; border-radius: 8px; margin-top: 18px; }
+.day-checklist h4 { color: #FA2A52; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.day-checklist ul { list-style: none; padding-left: 0; }
+.day-checklist li { padding: 4px 0 4px 22px; position: relative; font-size: 12px; }
+.day-checklist li::before { content: ""; width: 12px; height: 12px; border: 1.5px solid #FFFFFF; border-radius: 2px; position: absolute; left: 0; top: 7px; }
+.day-totals { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; color: rgba(255,255,255,0.85); }
+.day-totals strong { color: #FA2A52; }
+
+/* Appendices */
+.appendix { padding: 40px 0; page-break-before: always; }
+.appendix h2 { font-size: 26px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 3px solid #FA2A52; }
+.appendix h3 { font-size: 17px; margin: 22px 0 10px; color: #FA2A52; }
+.appendix .lead { font-size: 13px; color: #555; margin-bottom: 18px; line-height: 1.7; }
+.appendix .callout { background: #FFF1F4; border-left: 4px solid #FA2A52; padding: 14px 18px; margin: 16px 0; font-size: 13px; font-weight: 600; }
+
+.kit-block { background: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; page-break-inside: avoid; }
+.kit-key { font-size: 12px; font-weight: 700; color: #FA2A52; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+.kit-len { font-size: 10px; color: #888; font-weight: 500; text-transform: none; letter-spacing: 0; }
+.kit-val { font-size: 12px; line-height: 1.6; color: #1A1A2E; }
+.kit-sub { font-size: 12px; color: #1A1A2E; margin-bottom: 4px; }
+.kit-body { background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 10px 12px; font-family: monospace; font-size: 11px; line-height: 1.5; white-space: pre-wrap; max-height: 400px; overflow-y: auto; }
+
+.data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+.data-table th { background: #1A1A2E; color: #FA2A52; padding: 8px 10px; text-align: left; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+.data-table td { padding: 6px 10px; border-bottom: 1px solid #EEEEEE; }
+.data-table tbody tr:nth-child(even) { background: #FAFAFA; }
+
+@media print {
+  .day-section, .appendix, .toc, .exec, .cover { page-break-before: always; }
+  body { font-size: 11px; }
+}
+</style>
+</head>
+<body><div class="cover">
+  <div class="eyebrow">FORKFOX · EXECUTION PACKAGE</div>
+  <h1>14-Day Acquisition Sprint</h1>
+  <div class="subhead">Mon May 12 → Sun May 25, 2026</div>
+  <p style="font-size:18px; max-width:600px; line-height:1.5; color:rgba(255,255,255,0.85)">
+    Pre-built daily playbook with field-by-field copy for every form, every Reddit post,
+    every DM template, every press email, and every directory submission. Zero creative
+    work at execution time.
+  </p>
+  <div class="meta">
+    Compiled by Ali Mabsoute · forkfox.ai · ali@forkfox.ai<br>
+    Live execution site: <strong>alimabsoute.github.io/forkfox-sprint-1</strong>
+  </div>
+</div>
+<div class="book">
+<div class="toc"><h2>Contents</h2>
+<div class="toc-section"><h3>Sprint Overview</h3><ul>
+<li><a href="#exec"><span class="num">i.</span> Executive Summary</a></li>
+</ul></div>
+<div class="toc-section"><h3>Week 1 · Days 1–7</h3><ul>
+<li><a href="#day-01"><span class="num">Day 1.</span> Foundation Day <span style="color:#888">(May 12)</span></a></li>
+<li><a href="#day-02"><span class="num">Day 2.</span> Directory Blitz <span style="color:#888">(May 13)</span></a></li>
+<li><a href="#day-03"><span class="num">Day 3.</span> Local + Secondary Directories <span style="color:#888">(May 14)</span></a></li>
+<li><a href="#day-04"><span class="num">Day 4.</span> First Outreach Day <span style="color:#888">(May 15)</span></a></li>
+<li><a href="#day-05"><span class="num">Day 5.</span> Reddit Philly + Paid Ads Launch <span style="color:#888">(May 16)</span></a></li>
+<li><a href="#day-06"><span class="num">Day 6.</span> Builder Communities <span style="color:#888">(May 17)</span></a></li>
+<li><a href="#day-07"><span class="num">Day 7.</span> Directories Round 2 + Content <span style="color:#888">(May 18)</span></a></li>
+</ul></div>
+<div class="toc-section"><h3>Week 2 · Days 8–14</h3><ul>
+<li><a href="#day-08"><span class="num">Day 8.</span> Analyze + Optimize <span style="color:#888">(May 19)</span></a></li>
+<li><a href="#day-09"><span class="num">Day 9.</span> Bay Area + DM Wave 2 <span style="color:#888">(May 20)</span></a></li>
+<li><a href="#day-10"><span class="num">Day 10.</span> Remaining Directories <span style="color:#888">(May 21)</span></a></li>
+<li><a href="#day-11"><span class="num">Day 11.</span> Content From Intel <span style="color:#888">(May 22)</span></a></li>
+<li><a href="#day-12"><span class="num">Day 12.</span> Press + Partnerships <span style="color:#888">(May 23)</span></a></li>
+<li><a href="#day-13"><span class="num">Day 13.</span> Sprint Review <span style="color:#888">(May 24)</span></a></li>
+<li><a href="#day-14"><span class="num">Day 14.</span> Wrap + Set Up Sprint 2 <span style="color:#888">(May 25)</span></a></li>
+</ul></div>
+<div class="toc-section"><h3>Appendices</h3><ul>
+<li><a href="#appendix-a"><span class="num">A.</span> Complete Copy Kit</a></li>
+<li><a href="#appendix-b"><span class="num">B.</span> Influencer Database (38 handles)</a></li>
+<li><a href="#appendix-c"><span class="num">C.</span> Directory Submission Tracker</a></li>
+<li><a href="#appendix-d"><span class="num">D.</span> Budget Scenarios</a></li>
+<li><a href="#appendix-e"><span class="num">E.</span> Why Organic Hasn’t Worked Yet</a></li>
+<li><a href="#appendix-f"><span class="num">F.</span> iOS TestFlight Friction Problem</a></li>
+</ul></div>
+</div>
+<section class="exec" id="exec">
+<h2>Executive Summary</h2>
+<p>This is a 14-day acquisition sprint package for <strong>ForkFox</strong> — an AI-powered iOS app that scores individual dishes (not restaurants) at 3,600+ restaurants across Philadelphia and the SF Bay Area. App is in TestFlight beta; App Store version targets late June 2026.</p>
+<p><strong>Goal:</strong> 8–30 TestFlight installs across the 14 days at $20/day budget. 20–60 installs at $100/day if Week 2 unlocks conversion-mode.</p>
+<p><strong>Channel mix:</strong> Reddit Ads + Instagram Ads (paid) · 5 Reddit organic posts · 30 personalized DMs to Philly food micro-influencers · 18 directory submissions · 3 press emails · Indie Hackers build-in-public post · 3 IG content posts.</p>
+<div class="callout"><strong>What’s explicitly NOT in this sprint:</strong> Product Hunt launch, Hacker News post, major tech press. These are one-shot platforms — saved for App Store launch when conversion is 3x higher.</div>
+<p><strong>Each day in this document corresponds to a live page</strong> at <code>alimabsoute.github.io/forkfox-sprint-1</code> with checkable items, note pillboxes, and click-to-copy field references. This document is the printable / shareable version of that interactive site.</p>
+<p>Read straight through, or jump to a specific day via the Table of Contents.</p>
+</section>
+<section class="day-section" id="day-01">
+<div class="day-header">
+<div class="day-eyebrow">DAY 01 · WEEK 1</div>
+<h2>Foundation Day</h2>
+<div class="day-meta">Monday, May 12, 2026 · 2-3 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Get the essential infrastructure in place — Zoho alias, BetaList, Crunchbase, Wellfound, Product Hunt Coming Soon, and your own Launch Sentinel cross-listing.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Set up Zoho alias admin@forkfox.ai (PREREQUISITE) <span class="task-time">15 min</span></h3>
+<p class="task-intro">Everything else uses admin@forkfox.ai for impersonal/directory submissions. If your Zoho plan doesn&#39;t support aliases, fall back to ali@forkfox.ai for everything and skip this task.</p>
+<ol class="task-steps">
+<li>Open <strong>https://mail.zoho.com</strong> in a browser. Sign in as ali@forkfox.ai.</li>
+<li>Click the <strong>Settings</strong> gear (top right) → <strong>Mail Accounts</strong> (or Email Routing / Aliases).</li>
+<li>Find the <strong>Add Alias</strong> section. Add: <code>admin@forkfox.ai</code></li>
+<li>Confirm the alias maps to ali@forkfox.ai inbox.</li>
+<li>Test: send an email FROM admin@forkfox.ai to your personal Gmail. Verify it arrives.</li>
+</ol>
+<div class="warn-block">If your Zoho plan doesn&#39;t support aliases, skip and use ali@forkfox.ai everywhere.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> admin@forkfox.ai working as a sendable alias OR confirmed unavailable.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Submit to BetaList <span class="task-time">20 min</span></h3>
+<p class="task-intro">BetaList is a beta-testing community. Editorial review takes 1-3 weeks. Worth 20 min for the backlink + brand association.</p>
+<ol class="task-steps">
+<li>Open <strong>https://betalist.com/submit</strong></li>
+<li>Create account using <strong>admin@forkfox.ai</strong></li>
+<li>Click the field reference button below — copy each field with one click into the matching form input.</li>
+<li>Upload the BetaList logo image (linked below).</li>
+<li>Submit. Save the confirmation URL in your tracking spreadsheet.</li>
+</ol>
+<div class="warn-block">BetaList may require a paid tier ($39-$129). If only paid options shown, SKIP and note in tracker. Don&#39;t pay during a $20-100/day sprint.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> 0 signups today (1-3 week queue). Backlink value (DA 70+) starts in week 2-3.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Product Hunt Coming Soon page <span class="task-time">20 min</span></h3>
+<p class="task-intro">We&#39;re NOT launching on PH. We&#39;re claiming the Coming Soon slot to collect upvote-followers for the App Store launch. PH is one-shot; save the real launch for when conversion is 3x higher.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.producthunt.com</strong></li>
+<li>Sign in with <strong>alimabsoute@gmail.com</strong> (NOT admin@ — PH wants a personal maker profile).</li>
+<li>From the menu, click <strong>Post</strong> → <strong>Coming Soon</strong>.</li>
+<li>Open the field reference below and paste field by field.</li>
+<li>Set launch date as <strong>Late June 2026</strong> (App Store target).</li>
+</ol>
+<div class="warn-block">DO NOT click &#39;Launch&#39; or &#39;Submit for review.&#39; Coming Soon page ONLY.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> 2-10 followers accumulate over the sprint. Real value at App Store launch.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> Crunchbase listing <span class="task-time">20 min</span></h3>
+<p class="task-intro">Crunchbase has DA 91 — the strongest single backlink you&#39;ll get this sprint. Permanent.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.crunchbase.com/add-entity</strong></li>
+<li>Sign in with <strong>admin@forkfox.ai</strong>.</li>
+<li>Choose entity type: <strong>Organization</strong> → <strong>Add a profile</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Submit. Editorial review: 5-10 business days.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0 direct signups. Backlink value compounds. Strong credibility signal for Day 12-13 press outreach.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">5</span> Wellfound (formerly AngelList) company profile <span class="task-time">15 min</span></h3>
+<p class="task-intro">Wellfound is the startup-talent + investor directory. Tech-adjacent humans who already know TestFlight — closer to a real conversion than most directories.</p>
+<ol class="task-steps">
+<li>Open <strong>https://wellfound.com</strong></li>
+<li>Sign in with <strong>ali@forkfox.ai</strong> (Wellfound emphasizes founder identity).</li>
+<li>Click <strong>For Companies</strong> → <strong>Create a Company Profile</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-2 signups today, 5-15 over the sprint. Conversion is unusually high here.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">6</span> List ForkFox on Launch Sentinel (cross-promotion) <span class="task-time">10 min</span></h3>
+<p class="task-intro">Launch Sentinel is your own platform. Listing ForkFox creates a &#39;Built by the team behind Launch Sentinel&#39; narrative + an internal backlink.</p>
+<ol class="task-steps">
+<li>Open <strong>https://launchsentinel.com</strong> as the admin/founder.</li>
+<li>Add ForkFox as a tracked product.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Cross-post the listing on LinkedIn or Twitter.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Cross-promotion narrative live. Negligible direct signups.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 1 Checklist</h4>
+<ul>
+<li>admin@forkfox.ai alias working (or skipped)</li>
+<li>BetaList submitted (or paid-only / skipped)</li>
+<li>Product Hunt Coming Soon page LIVE (NOT launched)</li>
+<li>Crunchbase listing submitted</li>
+<li>Wellfound company profile created</li>
+<li>Launch Sentinel listing live</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0-1</strong> · Spend: <strong>$0</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-02">
+<div class="day-header">
+<div class="day-eyebrow">DAY 02 · WEEK 1</div>
+<h2>Directory Blitz</h2>
+<div class="day-meta">Tuesday, May 13, 2026 · 2 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> 4 more directory listings (AlternativeTo, Peerlist, Uneed, AppAdvice) and verify the top 5 Tier B influencers in the database.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> AlternativeTo submission <span class="task-time">20 min</span></h3>
+<p class="task-intro">Most valuable long-tail SEO directory you&#39;ll hit. People search &#39;Yelp alternatives&#39; and find you. DA 89.</p>
+<ol class="task-steps">
+<li>Open <strong>https://alternativeto.net</strong> → click <strong>Submit a new application</strong>.</li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Open the field reference below — note especially the 'Alternative to' field with all 5 entries.</li>
+<li>License: <strong>Freemium</strong>. Platforms: <strong>iOS</strong>.</li>
+<li>Submit. Editorial review: 3-7 days.</li>
+</ol>
+<div class="warn-block">The &#39;Alternative to&#39; field is what makes AlternativeTo work. Enter ALL FIVE alternatives or you cut discoverability by 5x.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> 0 today. 5-30 organic visitors per month once approved (compounds).</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Peerlist project page <span class="task-time">15 min</span></h3>
+<p class="task-intro">Developer-portfolio + project directory. Audience is technical, comfortable with TestFlight.</p>
+<ol class="task-steps">
+<li>Open <strong>https://peerlist.io</strong> → click <strong>Add Project</strong>.</li>
+<li>Sign up with <strong>ali@forkfox.ai</strong> (identity-driven).</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Status: <strong>Live (Beta)</strong>.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-2 signups. Tech audience converts 2-3x better for TestFlight.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Uneed submission <span class="task-time">15 min</span></h3>
+<p class="task-intro">Small-but-targeted maker / indie-product directory. Free tier exists.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.uneed.best</strong></li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Submit.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-1 signups. Engaged maker audience.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> AppAdvice / iOS-app-specific directory <span class="task-time">20 min</span></h3>
+<p class="task-intro">AppAdvice is iOS-app-specific — strong fit because their audience already has TestFlight installed.</p>
+<ol class="task-steps">
+<li>Open <strong>https://appadvice.com</strong></li>
+<li>Find the <strong>Submit App</strong> or <strong>Tip Us</strong> link in the footer.</li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Upload 3-5 REAL iPhone screenshots (DALL-E images won't pass review).</li>
+</ol>
+<div class="note-block">Screenshots must be real iPhone screenshots from the live app. If unavailable, defer to Day 3-4 and note in tracker.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-3 today. 5-15 if AppAdvice features you (1 in 10 chance).</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">5</span> Verify top 5 Tier B influencers in the database <span class="task-time">10 min</span></h3>
+<p class="task-intro">The influencer database has 38 rows (15 Tier A + 23 Tier B). Spend 10 min verifying 5 Tier B handles before Day 4-6 DM outreach uses them.</p>
+<ol class="task-steps">
+<li>Open <code>_assets/influencer_database.csv</code> in Excel or Google Sheets.</li>
+<li>Filter to <strong>tier = B</strong>.</li>
+<li>Open the top 5 by relevance (look at 'discovered_via' for Philly-specific queries).</li>
+<li>For each: visit https://www.instagram.com/[handle]/ and verify (1) account exists, (2) food-focused, (3) recent posts, (4) under 50K followers.</li>
+<li>Mark each row: <strong>verified</strong>, <strong>not relevant</strong>, or <strong>account gone</strong>.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 5 rows verified. Day 4-6 DM outreach uses ONLY verified rows.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 2 Checklist</h4>
+<ul>
+<li>AlternativeTo submitted (with all 5 alternatives listed)</li>
+<li>Peerlist project created</li>
+<li>Uneed submitted</li>
+<li>AppAdvice submitted (with real iPhone screenshots)</li>
+<li>Influencer database top-5 Tier B handles verified</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0</strong> · Spend: <strong>$0</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-03">
+<div class="day-header">
+<div class="day-eyebrow">DAY 03 · WEEK 1</div>
+<h2>Local + Secondary Directories</h2>
+<div class="day-meta">Wednesday, May 14, 2026 · 1.5 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Three more directory listings (Startup Stash, Fazier, BetaBound) plus the Meta Business unblock so paid ads can launch on Day 5. Google Business Profile is deferred pending discussion with Nik on the address.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Google Business Profile (DEFERRED) <span class="task-time">—</span></h3>
+<p class="task-intro">Skipping today. We need to discuss with Nik whether to use a home address, virtual office, or skip GBP entirely. Once decided, this becomes a 20-min task. Note in tracking spreadsheet: &#39;GBP deferred pending cofounder address decision.&#39;</p>
+<ol class="task-steps">
+<li><strong>NO ACTION TODAY.</strong> When Ali + Nik align, the steps will be: (1) business.google.com → sign in with alimabsoute@gmail.com → (2) create listing → (3) category 'Software Company' → (4) submit for postcard verification.</li>
+<li>If Nik prefers to skip GBP entirely, mark this row as <strong>permanently skipped</strong> in tracker and remove from future sprints.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0 today. Decision needed before next sprint.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Startup Stash submission <span class="task-time">15 min</span></h3>
+<p class="task-intro">Free directory of startup tools. DA 65. Long-tail SEO play.</p>
+<ol class="task-steps">
+<li>Open <strong>https://startupstash.com</strong> — find <strong>Submit</strong> in the footer.</li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Open the field reference below and paste field by field.</li>
+<li>Upload logo when prompted.</li>
+<li>Submit. Editorial review: 2-5 days.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0 direct signups. Backlink + occasional discovery via Startup Stash newsletter.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Fazier submission <span class="task-time">15 min</span></h3>
+<p class="task-intro">Maker community + product launch directory. DA 81. Fast turnaround (often same-day approval).</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.fazier.com</strong></li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Find <strong>Submit a product</strong> or <strong>Add product</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Submit.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-3 signups within 48 hours if approved quickly. Maker audience is TestFlight-comfortable.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> BetaBound submission <span class="task-time">15 min</span></h3>
+<p class="task-intro">Dedicated beta-testing community. Their entire user base WANTS to test betas. Highest-intent traffic in the entire directory list.</p>
+<ol class="task-steps">
+<li>Open <strong>https://betabound.com</strong></li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Find <strong>Submit a Beta</strong> or <strong>Run a Beta Test</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Specify platform: <strong>iOS (TestFlight)</strong>.</li>
+<li>Compensation: <strong>None — early access only</strong>.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 3-10 signups over the sprint if accepted into their listings. Highest install intent of any directory.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">5</span> Fill Meta Business info to unblock ads (PREREQUISITE for Day 5) <span class="task-time">10 min</span></h3>
+<p class="task-intro">On Day 5 we launch Instagram ads. They won&#39;t run until Meta has business info on file. Fix that now so Day 5 isn&#39;t blocked.</p>
+<ol class="task-steps">
+<li>Open <strong>https://business.facebook.com</strong> → sign in.</li>
+<li>Click <strong>Business Settings</strong> (gear icon, top right) → <strong>Business Info</strong>.</li>
+<li>Open the field reference and fill the values listed.</li>
+<li>Save. Then go to <strong>Billing → Payment Methods</strong> and add a card if not already done.</li>
+<li>Verify in Ads Manager: there should be no red 'Account restricted' or 'Missing info' banner.</li>
+</ol>
+<div class="warn-block">Without this, the IG ads on Day 5 simply won&#39;t deliver. Verify TODAY — Meta sometimes takes 24h to approve new business info.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> Meta Business account in good standing, Ads Manager unblocked.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 3 Checklist</h4>
+<ul>
+<li>GBP deferred + noted in tracker</li>
+<li>Startup Stash submitted</li>
+<li>Fazier submitted</li>
+<li>BetaBound submitted</li>
+<li>Meta Business info filled, ads unblocked</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0</strong> · Spend: <strong>$0</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-04">
+<div class="day-header">
+<div class="day-eyebrow">DAY 04 · WEEK 1</div>
+<h2>First Outreach Day</h2>
+<div class="day-meta">Thursday, May 15, 2026 · 2 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> First Reddit post (r/alphaandbetausers — direct beta pitch is welcomed there) + first 5 personalized DMs to Tier A influencers + create the master tracking spreadsheet.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> SaaSHub submission <span class="task-time">15 min</span></h3>
+<p class="task-intro">Free SaaS directory. DA 60. Submit and forget.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.saashub.com/submit</strong></li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Category: <strong>Food & Drink</strong>. Pricing: <strong>Free</strong>.</li>
+<li>Submit. Editorial review: 5-10 days.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-1 direct signups. Long-tail SEO + occasional newsletter mention.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Reddit r/alphaandbetausers post <span class="task-time">20 min</span></h3>
+<p class="task-intro">This sub EXISTS for beta announcements. Direct pitch is fine, even encouraged. Highest immediate-conversion Reddit post of the sprint.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.reddit.com/r/alphaandbetausers/</strong></li>
+<li>Click <strong>Create Post</strong>.</li>
+<li>Open the post reference below — copy the title and body verbatim.</li>
+<li>Flair: <strong>[iOS]</strong> or <strong>[Beta]</strong> if available.</li>
+<li>Post. Refresh every 30 min for the next 4 hours and reply to EVERY comment.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 3-8 upvotes, 0-3 TestFlight installs. Replies to comments are critical — silent posts get downvoted.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> First DM outreach wave (5 influencers — rows 1-5 of Tier A) <span class="task-time">45 min</span></h3>
+<p class="task-intro">5 personalized DMs to top Tier A handles. Per-DM time: ~9 min (3 min researching their grid + 3 min customizing template + 3 min sending and logging).</p>
+<ol class="task-steps">
+<li>Open <strong>_assets/influencer_database.csv</strong> in Excel or Google Sheets. Filter to Tier A.</li>
+<li>Open the DM templates reference below — has all 5 pre-personalized templates ready.</li>
+<li>For each of the 5 (Kass, Josh, Emily, Katie, Fiona): open their IG grid, find their MOST RECENT food post, replace any [bracketed_placeholder] with the actual restaurant or dish from that post.</li>
+<li>Send the DM. For Tier A with email (Kass, Josh, Emily, Katie): send via email with the email-version template instead of IG DM.</li>
+<li>Log in tracking spreadsheet: handle, date sent, restaurant referenced, response Y/N.</li>
+</ol>
+<div class="warn-block">NEVER send a generic DM. If you can&#39;t find a specific restaurant in their last 5 posts to reference, SKIP that handle and move to the next. A generic DM gets ignored or marked as spam.</div>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-2 responses out of 5 (10-25% reply rate on personalized cold). 0-1 install.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> Create master tracking spreadsheet <span class="task-time">10 min</span></h3>
+<p class="task-intro">Single Google Sheet. 5 tabs. Without this, the rest of the sprint&#39;s metrics are impossible to roll up.</p>
+<ol class="task-steps">
+<li>Open <strong>https://sheets.google.com</strong> → New blank spreadsheet → name it 'ForkFox Sprint Tracker May 2026'.</li>
+<li>Open the tracking spreadsheet reference below — copy each tab's column headers exactly.</li>
+<li>Backfill any data you already have from Days 1-3 (directory submissions, etc.).</li>
+<li>Bookmark the sheet. Update it at the end of every sprint day.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Master sheet exists, Days 1-3 data backfilled.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 4 Checklist</h4>
+<ul>
+<li>SaaSHub submitted</li>
+<li>r/alphaandbetausers post live + comments responded to</li>
+<li>5 personalized DMs sent (Tier A rows 1-5)</li>
+<li>Tracking spreadsheet created and bookmarked</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0-3</strong> · Spend: <strong>$0</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-05">
+<div class="day-header">
+<div class="day-eyebrow">DAY 05 · WEEK 1</div>
+<h2>Reddit Philly + Paid Ads Launch</h2>
+<div class="day-meta">Friday, May 16, 2026 · 2.5 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> First high-value Reddit post (r/phillyfood — content-first) + launch Reddit Ads + launch Instagram Ads. By end of day: $20/day burning toward TestFlight installs.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Reddit r/phillyfood post (FOOD CONTENT FIRST) <span class="task-time">30 min</span></h3>
+<p class="task-intro">r/phillyfood mods are strict on self-promo. The post must be interesting WITHOUT the ForkFox mention. Lead with food data; ForkFox appears as &#39;the tool I used&#39; in the last 2-3 sentences only.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.reddit.com/r/phillyfood/</strong> — read the sidebar rules first.</li>
+<li>Click <strong>Create Post</strong>.</li>
+<li>Open the post reference below — copy the title and body verbatim.</li>
+<li>Flair: <strong>Discussion</strong> or <strong>Recommendations</strong> if available.</li>
+<li>Post. Monitor for 4 hours. Reply to every comment — be helpful, share more data when asked.</li>
+<li>If a mod removes the post, do NOT repost. Note in tracker and pivot to r/PhiladelphiaEats next time.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 10-30 upvotes if content lands. 1-5 TestFlight installs. Highest single-source install volume of any organic tactic.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Launch Reddit Ads ($10/day, 2 variants) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Reddit&#39;s tech-savvy audience converts ~2x better on TestFlight than IG. iOS-only targeting is critical — wastes spend on Android otherwise.</p>
+<ol class="task-steps">
+<li>Open <strong>https://ads.reddit.com</strong></li>
+<li>Open the Reddit Ads setup guide below — follow step by step.</li>
+<li>Account: <strong>admin@forkfox.ai</strong>.</li>
+<li>Set up campaign with the exact targeting + 2 variants per the guide.</li>
+<li>Launch. Both ads run for 72 hours before any judgement.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 10-20 clicks/day at $0.50-$1.00 CPC. 0-1 install/day.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Launch Instagram Ads ($10/day, 2 variants) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Meta Ads — REQUIRES the business info from Day 3 to be approved. iOS-only targeting + Stories+Reels+Feed placements. 2 creatives split-tested.</p>
+<ol class="task-steps">
+<li>Open <strong>https://business.facebook.com/adsmanager</strong></li>
+<li>Open the IG Ads setup guide below — follow step by step.</li>
+<li>Create campaign with exact targeting + 2 ad creatives per the guide.</li>
+<li>Launch. Both ads run for 72 hours.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 5-10 clicks/day at $1-$2 CPC. 0-1 install/day. Engagement (likes, follows) often higher value than direct clicks at this stage.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 5 Checklist</h4>
+<ul>
+<li>r/phillyfood post live + comments responded</li>
+<li>Reddit Ads live (2 variants, $10/day, iOS-only, Philly DMA)</li>
+<li>Instagram Ads live (2 variants, $10/day, Philly+iOS, Stories/Reels/Feed)</li>
+<li>All campaigns logged in tracking spreadsheet</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>1-5</strong> · Spend: <strong>$20</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-06">
+<div class="day-header">
+<div class="day-eyebrow">DAY 06 · WEEK 1</div>
+<h2>Builder Communities</h2>
+<div class="day-meta">Saturday, May 17, 2026 · 1.5 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Two more Reddit posts (builder + local), check first 24h ad performance, send 5 more DMs (Tier A rows 6-10).</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Reddit r/SideProject post <span class="task-time">20 min</span></h3>
+<p class="task-intro">Builder/maker audience. Technical story angle. Different framing from r/phillyfood — here we lead with what we built and the metrics.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.reddit.com/r/SideProject/</strong></li>
+<li>Click <strong>Create Post</strong>.</li>
+<li>Open the post reference below — copy verbatim.</li>
+<li>Flair: <strong>Show</strong> or <strong>Built with [stack]</strong> if available.</li>
+<li>Reply to every comment. Builder communities ask technical questions — answer them honestly.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 30-150 upvotes if it lands. 2-8 TestFlight installs from devs (TestFlight-comfortable audience).</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Reddit r/philly post (local angle) <span class="task-time">20 min</span></h3>
+<p class="task-intro">r/philly is the broader Philly community sub (food + local life). Self-promo is allowed sparingly. Disclose founder status.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.reddit.com/r/philly/</strong></li>
+<li>Click <strong>Create Post</strong>.</li>
+<li>Open the post reference below — short, conversational, founder disclosure included.</li>
+<li>Reply to comments. Be conversational, not marketing-y.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 5-25 upvotes. 0-2 installs. r/philly is unpredictable — sometimes lands, sometimes ignored.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Check Day 5 ad performance (24h check-in) <span class="task-time">15 min</span></h3>
+<p class="task-intro">First decision point on creative quality. If a variant has CTR below 0.3% after 24h, pause it and shift the budget to the better one.</p>
+<ol class="task-steps">
+<li>Open <strong>Reddit Ads dashboard</strong>. Compare variants A vs B: impressions, clicks, CTR, CPC.</li>
+<li>If one variant has CTR less than half the other after 24h, pause the loser. Shift the $5/day to the winner.</li>
+<li>Open <strong>Meta Ads Manager</strong>. Same comparison for IG ad A vs B.</li>
+<li>If both variants on a platform are below 0.3% CTR, both are weak — note in tracker, plan a new creative for Day 7.</li>
+<li>Log decision in tracker (which variant paused, which scaled).</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Decision logged. Either: stronger variant gets full budget OR both get killed and replaced.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> Send 5 more DMs (Tier A rows 6-10) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Same process as Day 4 — personalize per recipient. Skip anyone without a recent post worth referencing.</p>
+<ol class="task-steps">
+<li>Open the DM templates reference below (wave 2: rows 6-10 — phillyfooddude, jenicainphilly, thephillyfoodblog, loveatourfirstbite, eats_with_deezy).</li>
+<li>For each: open their IG grid, find latest food post, fill in the [bracketed] reference.</li>
+<li>Send. Log in tracker.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-2 responses. 0-1 install.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 6 Checklist</h4>
+<ul>
+<li>r/SideProject post live + comments responded</li>
+<li>r/philly post live + comments responded</li>
+<li>Ad performance reviewed, weak variants paused if needed</li>
+<li>5 more DMs sent (Tier A rows 6-10), tracker updated</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0-2</strong> · Spend: <strong>$20</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-07">
+<div class="day-header">
+<div class="day-eyebrow">DAY 07 · WEEK 1</div>
+<h2>Directories Round 2 + Content</h2>
+<div class="day-meta">Sunday, May 18, 2026 · 2 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Two more directory listings (f6s, Indie Hackers product page) + a meaty Indie Hackers build-in-public post + DM follow-ups + audit which directories are actually live.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> f6s submission <span class="task-time">20 min</span></h3>
+<p class="task-intro">Startup founder community + funding directory. Free. DA 70+.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.f6s.com</strong> → sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Find <strong>Add Startup</strong> or <strong>Submit Company</strong> in the menu.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Stage: <strong>Beta / Pre-launch</strong>.</li>
+<li>Submit.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-2 direct signups. Useful for funding/accelerator discovery later.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Indie Hackers product page + build-in-public post <span class="task-time">45 min</span></h3>
+<p class="task-intro">Two parts: (1) create the IH product page, (2) post the 600-900 word build-in-public story. The post is the part that matters — IH is one of the highest-quality founder audiences online.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.indiehackers.com</strong> → sign up with <strong>ali@forkfox.ai</strong>.</li>
+<li>First create the <strong>Product Page</strong> using the product reference below.</li>
+<li>Then click <strong>Create Post</strong> in the main feed.</li>
+<li>Open the build-in-public post reference — copy title + body verbatim (it's already 667 words).</li>
+<li>Post in the appropriate group (Startups, AI, Mobile).</li>
+<li>Reply to every comment in the next 24 hours. Founders respect engagement.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 100-500 views, 0-5 installs (TestFlight-comfortable audience). Stronger long-term value: founder relationships + cross-IH-thread mentions.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> DM follow-ups (Day 4 wave that didn&#39;t respond) <span class="task-time">20 min</span></h3>
+<p class="task-intro">3-day rule: if no response after 3 days, send ONE follow-up. After that, move on.</p>
+<ol class="task-steps">
+<li>Open the tracking spreadsheet → Outreach tab.</li>
+<li>Filter to Day 4 DMs with no response.</li>
+<li>Open the follow-up template reference below — short, no-pressure language.</li>
+<li>Send to each. Mark follow-up date in tracker.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-2 belated responses across the wave. The follow-up often outperforms the initial cold.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> Audit directory submission statuses <span class="task-time">15 min</span></h3>
+<p class="task-intro">Some directories from Days 1-3 have probably gone live. Confirm so the tracker reflects reality.</p>
+<ol class="task-steps">
+<li>Google: <strong>'ForkFox betalist'</strong>, <strong>'ForkFox saashub'</strong>, <strong>'ForkFox alternativeto'</strong>, <strong>'ForkFox crunchbase'</strong>, <strong>'ForkFox wellfound'</strong>.</li>
+<li>For each result that returns a live listing, mark it as <strong>Live</strong> in tracker with the URL.</li>
+<li>For any that don't show up, mark as <strong>Pending</strong>. Re-check on Day 13.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Tracker updated with live status for 4-8 directories.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 7 Checklist</h4>
+<ul>
+<li>f6s submitted</li>
+<li>Indie Hackers product page + build-in-public post live</li>
+<li>DM follow-ups sent for unanswered Day 4 outreach</li>
+<li>Directory statuses audited and tracker updated</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>1-7</strong> · Spend: <strong>$20</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-08">
+<div class="day-header">
+<div class="day-eyebrow">DAY 08 · WEEK 2</div>
+<h2>Analyze + Optimize</h2>
+<div class="day-meta">Monday, May 19, 2026 · 1 hour</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Pure analysis day. Pull every number. Apply the decision matrix to scale winners and kill losers.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Full metrics pull (all sources) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Single sit-down with all dashboards open. Numbers go directly into the tracker — not into your head.</p>
+<ol class="task-steps">
+<li>Open the metrics checklist reference below.</li>
+<li>Walk through every source listed: GA4, Reddit Ads, Meta Ads, Reddit organic, DM tracker, TestFlight Insights.</li>
+<li>For each, log the listed numbers into the tracker spreadsheet.</li>
+<li>Calculate cost-per-install per channel (spend / installs).</li>
+<li>Note WHICH channel has the lowest CPI — this is where Week 2 budget concentrates.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> All numbers in tracker. Top-performing channel identified.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Apply decision matrix <span class="task-time">30 min</span></h3>
+<p class="task-intro">Pre-built decision tree based on 7 days of data. No judgement calls — just follow the rules.</p>
+<ol class="task-steps">
+<li>Open the decision matrix reference below.</li>
+<li>For each rule, check whether the condition is true. If yes, take the action.</li>
+<li>Document every decision taken in the tracker's Decision Log tab.</li>
+<li>Common Day 8 outcomes: kill the weaker IG variant, scale the stronger Reddit copy, plan Day 11+ content.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 5-8 decisions logged. Week 2 ad allocation set.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 8 Checklist</h4>
+<ul>
+<li>Metrics pulled across all sources, tracker updated</li>
+<li>Decision matrix walked, all rules applied, decisions logged</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0</strong> · Spend: <strong>$20</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-09">
+<div class="day-header">
+<div class="day-eyebrow">DAY 09 · WEEK 2</div>
+<h2>Bay Area + DM Wave 2</h2>
+<div class="day-meta">Tuesday, May 20, 2026 · 1.5 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Bay Area Reddit post (mirror of r/phillyfood approach) + DM wave 2 to Tier B influencers + ad optimizations from Day 8 analysis.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Reddit r/bayareafood post <span class="task-time">30 min</span></h3>
+<p class="task-intro">Same content-first format as r/phillyfood Day 5. Lead with brunch/dining data; ForkFox mentioned as &#39;the tool I used&#39; at the very end.</p>
+<ol class="task-steps">
+<li>Open <strong>https://www.reddit.com/r/bayareafood/</strong> — read sidebar rules first.</li>
+<li>Click <strong>Create Post</strong>.</li>
+<li>Open the post reference below — copy title + body verbatim.</li>
+<li>Reply to every comment. Bay Area subs are tougher on self-promo than Philly — be helpful, not promotional.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 10-30 upvotes. 1-3 installs from SF audience. Bay Area iOS share is higher than Philly — installs are more concentrated here per click.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> DM wave 2 — Tier B influencers (rows 11-20 of database) <span class="task-time">45 min</span></h3>
+<p class="task-intro">Tier B = the 23 newly-discovered handles from Firecrawl search. Smaller follower counts, often higher engagement. Same personalization rules as wave 1.</p>
+<ol class="task-steps">
+<li>Open <strong>_assets/influencer_database.csv</strong> → filter to <strong>tier = B</strong>, sorted by follower estimate desc.</li>
+<li>Pick the top 10 Tier B handles that you VERIFIED on Day 2 (skip 'account gone' or 'not relevant').</li>
+<li>Open the DM templates reference below.</li>
+<li>For each: research grid, customize, send. Same 9-min-per-DM cadence as Day 4.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 2-4 responses out of 10. Tier B has lower brand recognition but often higher reply rate (smaller accounts engage more with DMs).</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Ad optimization from Day 8 analysis <span class="task-time">15 min</span></h3>
+<p class="task-intro">Apply the budget shifts decided yesterday. If conversion mode wasn&#39;t unlocked yet, stay on traffic mode.</p>
+<ol class="task-steps">
+<li>Open Reddit Ads + Meta Ads dashboards.</li>
+<li>Apply the budget reallocation from Day 8's decision log (e.g., shift $5 from IG to Reddit if Reddit CPI is lower).</li>
+<li>If a winning creative was identified, scale it. Pause anything that hit the kill threshold.</li>
+<li>Log changes in tracker.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Ad accounts reflect Day 8 decisions. Budget concentrated on best-performing channel + creative.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 9 Checklist</h4>
+<ul>
+<li>r/bayareafood post live + comments responded</li>
+<li>10 DMs sent to Tier B (rows 11-20)</li>
+<li>Ad budgets adjusted per Day 8 decisions</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>1-5</strong> · Spend: <strong>$20</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-10">
+<div class="day-header">
+<div class="day-eyebrow">DAY 10 · WEEK 2</div>
+<h2>Remaining Directories</h2>
+<div class="day-meta">Wednesday, May 21, 2026 · 1 hour</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Last two directory listings + budget ramp consideration (do you have $100/day budget for Week 2 or staying at $20?).</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> MicroLaunch submission <span class="task-time">15 min</span></h3>
+<p class="task-intro">Bootstrapped-founder directory. Audience is sympathetic to TestFlight betas.</p>
+<ol class="task-steps">
+<li>Open <strong>https://microlaunch.net</strong></li>
+<li>Sign up with <strong>admin@forkfox.ai</strong>.</li>
+<li>Open the field reference and paste field by field.</li>
+<li>Submit.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-2 signups. Tight-knit indie community.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Yelp for Business listing <span class="task-time">20 min</span></h3>
+<p class="task-intro">ForkFox isn&#39;t a restaurant, but creating a Yelp business profile gets you in their search index. Useful for local SEO and &#39;food app Philadelphia&#39; searches.</p>
+<ol class="task-steps">
+<li>Open <strong>https://biz.yelp.com</strong></li>
+<li>Sign in with <strong>admin@forkfox.ai</strong>.</li>
+<li>Click <strong>Add Business</strong>.</li>
+<li>Open the field reference and paste field by field. Category: <strong>App / Software Company</strong>.</li>
+<li>Submit. Verification may require a phone call from Yelp — answer it within 48h.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Listing live within 5-7 days. Local-SEO benefit. 0 direct signups, slow long-tail value.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Decide Week 2 budget: $20/day or $100/day? <span class="task-time">15 min</span></h3>
+<p class="task-intro">End-of-Week-1 decision. Look at Day 8 metrics. Three options below.</p>
+<ol class="task-steps">
+<li>Open the tracker → cost-per-install summary.</li>
+<li><strong>If CPI is below $25 AND you have 50+ form_submit events in Meta:</strong> ramp to $100/day. Conversion mode unlocks. Use the schedule below.</li>
+<li><strong>If CPI is $25-$50 OR you don't have 50+ events:</strong> stay at $20/day for Week 2. Same channels, same allocation.</li>
+<li><strong>If CPI is above $50:</strong> pause paid for 3 days. The funnel is broken somewhere — diagnose before more spend.</li>
+<li>If ramping to $100/day: Day 10 = $40 (double winners), Day 11 = $60, Day 12 = $80, Day 13+ = $100. Don't jump straight to $100 or Meta loses learnings.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Week 2 budget locked. Daily ad allocation set.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 10 Checklist</h4>
+<ul>
+<li>MicroLaunch submitted</li>
+<li>Yelp for Business listing submitted</li>
+<li>Week 2 budget decided + tracker updated</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0-1</strong> · Spend: <strong>$20-$40 (Day 10 of ramp if going $100/day)</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-11">
+<div class="day-header">
+<div class="day-eyebrow">DAY 11 · WEEK 2</div>
+<h2>Content From Intel</h2>
+<div class="day-meta">Thursday, May 22, 2026 · 1.5 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Three IG content posts derived from competitor Eater/PhillyMag intel + final DM wave to Tier B + Reddit comment cleanup.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Create 3 IG posts from competitor intel <span class="task-time">45 min</span></h3>
+<p class="task-intro">The IG posts are pre-written. Each ties a current Philly food trend (from Eater/PhillyMag) to ForkFox data. Post one today, schedule the other two for Days 12-13.</p>
+<ol class="task-steps">
+<li>Open the IG content calendar reference below.</li>
+<li>Pick post 1 — copy caption, save the matching image from <strong>_assets/images/</strong> (or shoot a quick phone photo of the dish if you can).</li>
+<li>Open Instagram → Create new post → upload image → paste caption → publish.</li>
+<li>Schedule posts 2 and 3 for Days 12 and 13 using IG's native scheduler (or Later, Buffer, etc.).</li>
+<li>Log post URLs in tracker → IG tab.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 3 IG posts queued. 1 live today, 2 scheduled.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> DM wave 3 — Tier B remainder (rows 21-30) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Final batch of Tier B DMs. Round out the 30-handle target.</p>
+<ol class="task-steps">
+<li>Open <strong>_assets/influencer_database.csv</strong> → filter to verified Tier B not yet contacted.</li>
+<li>Pick the next 10 (rows 21-30 of the verified list).</li>
+<li>Open the DM templates reference below.</li>
+<li>Send + log.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-3 responses. By end of Day 11: 30 total DMs sent across 4 waves.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Respond to all open Reddit comments <span class="task-time">15 min</span></h3>
+<p class="task-intro">Bring the cumulative Reddit thread engagement to zero unread.</p>
+<ol class="task-steps">
+<li>Open Reddit notifications (top right, bell icon).</li>
+<li>Reply to every unanswered comment across r/alphaandbetausers, r/phillyfood, r/SideProject, r/philly, r/bayareafood.</li>
+<li>If anyone asked a technical or product question that deserves a longer reply, take 2-3 mins on it. These convert to installs at higher rates than throwaway 'thanks!' replies.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0 unanswered Reddit comments. Founder presence visible across all 5 subs.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 11 Checklist</h4>
+<ul>
+<li>First IG content post live</li>
+<li>Posts 2 and 3 scheduled</li>
+<li>10 DMs sent (Tier B rows 21-30) — 30 total DMs cumulative</li>
+<li>All Reddit comments responded</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>1-3</strong> · Spend: <strong>$20-$60</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-12">
+<div class="day-header">
+<div class="day-eyebrow">DAY 12 · WEEK 2</div>
+<h2>Press + Partnerships</h2>
+<div class="day-meta">Friday, May 23, 2026 · 1.5 hours</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Three pre-written press emails sent (Visit Philly, Hidden City, Billy Penn) + second IG post live + DM follow-ups for unresponded waves.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Email Visit Philly <span class="task-time">10 min</span></h3>
+<p class="task-intro">Pre-written. Tourism partnership angle: ForkFox&#39;s dish-level data is useful for visitor itineraries.</p>
+<ol class="task-steps">
+<li>Open the email reference below.</li>
+<li>Open Gmail / Zoho → compose new email FROM <strong>ali@forkfox.ai</strong>.</li>
+<li>TO: <strong>partnerships@visitphilly.com</strong>.</li>
+<li>Copy subject + body verbatim.</li>
+<li>Send. Log in tracker → Press tab.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-1 reply (tourism boards are slow). If they reply, expect a 2-week back-and-forth before any partnership materializes.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Email Hidden City Philadelphia <span class="task-time">10 min</span></h3>
+<p class="task-intro">Pre-written. Local-history-and-culture angle — ForkFox surfaces under-the-radar restaurants that fit Hidden City&#39;s editorial.</p>
+<ol class="task-steps">
+<li>Open the email reference below.</li>
+<li>Compose from <strong>ali@forkfox.ai</strong>.</li>
+<li>TO: editor's email per the reference (find their current contact at hiddencityphila.org/contact).</li>
+<li>Copy subject + body verbatim. Send. Log.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-1 reply. Hidden City has a small editorial team, slow but quality coverage if interested.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Email Billy Penn (local Philly press) <span class="task-time">10 min</span></h3>
+<p class="task-intro">Pre-written. Data-driven story angle — Billy Penn loves civic/local-data pieces.</p>
+<ol class="task-steps">
+<li>Open the email reference below.</li>
+<li>Compose from <strong>ali@forkfox.ai</strong>.</li>
+<li>TO: tips@billypenn.com (or specific food-section editor if you can find one).</li>
+<li>Copy subject + body verbatim. Send. Log.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 0-1 reply. Billy Penn&#39;s audience is exactly the Philly-foodie persona we want — even a brief mention drives high-quality installs.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">4</span> Post second IG content piece (from Day 11 calendar) <span class="task-time">10 min</span></h3>
+<p class="task-intro">Second of the 3 pre-written IG posts.</p>
+<ol class="task-steps">
+<li>If you scheduled it on Day 11, just confirm it published.</li>
+<li>If you're posting manually: open IG → upload image → paste caption (post 2 from the calendar) → publish.</li>
+<li>Log post URL in tracker.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Post 2 live.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">5</span> Follow up unresponded DMs (waves 1-2) <span class="task-time">20 min</span></h3>
+<p class="task-intro">Last call for Day 4 + Day 6 DMs that didn&#39;t respond. After this, move on.</p>
+<ol class="task-steps">
+<li>Open tracker → Outreach tab. Filter to no response across waves 1-2.</li>
+<li>Open DM follow-up template reference.</li>
+<li>Send a SHORT 'last bump' — gracious, no-pressure.</li>
+<li>After this, mark each row as 'closed — no response' and stop reaching out.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-2 belated responses. Most go silent — that&#39;s normal.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 12 Checklist</h4>
+<ul>
+<li>Visit Philly email sent</li>
+<li>Hidden City Philadelphia email sent</li>
+<li>Billy Penn email sent</li>
+<li>Second IG post live</li>
+<li>All wave-1+2 DMs followed up or closed</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0-2</strong> · Spend: <strong>$20-$80</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-13">
+<div class="day-header">
+<div class="day-eyebrow">DAY 13 · WEEK 2</div>
+<h2>Sprint Review</h2>
+<div class="day-meta">Saturday, May 24, 2026 · 1 hour</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Comprehensive metrics pull + draft the Sprint 2 plan based on what worked.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Full sprint review (all metrics, all sources) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Same as Day 8 metrics pull but more thorough — looking for the full 12-day pattern, not just the last 4 days.</p>
+<ol class="task-steps">
+<li>Open the sprint review template below.</li>
+<li>Walk through every section. Pull numbers from GA4, Meta Ads, Reddit Ads, Reddit organic, DM tracker, TestFlight Insights, directory submissions.</li>
+<li>For each channel: total spend, total installs, CPI, best performing creative/post.</li>
+<li>Identify the 1-2 channels that produced 50%+ of installs. These get scaled in Sprint 2.</li>
+<li>Identify the 2-3 channels that produced 0 installs. These get killed in Sprint 2.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Full sprint scorecard. Winners + losers identified.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Draft Sprint 2 plan (1 page) <span class="task-time">30 min</span></h3>
+<p class="task-intro">Decision tree based on what worked. Output: a 1-page brief that tells you exactly what Sprint 2 looks like.</p>
+<ol class="task-steps">
+<li>Open the Sprint 2 planning reference below.</li>
+<li>Walk through the decision tree.</li>
+<li><strong>If App Store launch is imminent (within 30 days):</strong> Sprint 2 = Product Hunt launch + Apple Search Ads + scale winning channels.</li>
+<li><strong>If still TestFlight for next 30+ days:</strong> Sprint 2 = scale DMs to 20/day + new subreddits (r/iOSBeta, r/foodporn) + Philly event partnerships.</li>
+<li><strong>If sprint underperformed (<10 installs):</strong> Sprint 2 = 7-day diagnostic (no spend) + funnel teardown + product feedback session.</li>
+<li>Document the chosen path in tracker → Sprint 2 Plan tab.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> 1-page Sprint 2 brief drafted. Locked-in decision on which path to take.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 13 Checklist</h4>
+<ul>
+<li>Full sprint metrics pulled and analyzed</li>
+<li>Winners + losers documented</li>
+<li>Sprint 2 plan drafted (1 page)</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0</strong> · Spend: <strong>$20-$100</strong></div>
+</div>
+</section>
+<section class="day-section" id="day-14">
+<div class="day-header">
+<div class="day-eyebrow">DAY 14 · WEEK 2</div>
+<h2>Wrap + Set Up Sprint 2</h2>
+<div class="day-meta">Sunday, May 25, 2026 · 1 hour</div>
+</div>
+<div class="day-focus"><strong>Focus:</strong> Final metrics snapshot + Sprint 2 brief polish + send wrap memo to Nik.</div>
+<div class="task-block">
+<h3><span class="task-num">1</span> Final metrics snapshot <span class="task-time">20 min</span></h3>
+<p class="task-intro">Lock the numbers. This is the canonical record of Sprint 1.</p>
+<ol class="task-steps">
+<li>Open the final metrics report template below.</li>
+<li>Fill every field with the final cumulative numbers.</li>
+<li>Save as 'forkfox-sprint-1-final-report-2026-05-25.pdf' (export Google Doc to PDF).</li>
+<li>Drop the PDF in shared Drive folder so Nik has access.</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Final report saved as PDF. Shared with Nik.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">2</span> Polish + send Sprint 2 brief <span class="task-time">30 min</span></h3>
+<p class="task-intro">Take the draft from Day 13, polish it, send to Nik with an explicit ask: do you agree with the path? Yes/no by Tuesday.</p>
+<ol class="task-steps">
+<li>Open the Sprint 2 brief from Day 13 (or sprint2-planning template if you haven't drafted yet).</li>
+<li>Polish — make sure each tactic has: budget, owner (Ali or Nik), expected outcome, kill criteria.</li>
+<li>Email to Nik with subject: <strong>'Sprint 2 brief — please review by Tuesday'</strong>.</li>
+<li>Body: 'Sprint 1 wrapped. Here's the brief. Reply by Tuesday with yes/no on the path. If yes, Sprint 2 starts Wednesday May 28.'</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Sprint 2 brief sent to Nik with explicit decision deadline.</div>
+</div>
+<div class="task-block">
+<h3><span class="task-num">3</span> Wrap memo (3 sentences) — internal only <span class="task-time">10 min</span></h3>
+<p class="task-intro">Single message to yourself in the tracker. What surprised you? What would you do differently?</p>
+<ol class="task-steps">
+<li>Open tracker → notes / final reflection.</li>
+<li>Write 3 sentences max:</li>
+<li><strong>(1)</strong> The biggest surprise this sprint was [X].</li>
+<li><strong>(2)</strong> Next time I'd do [Y] differently.</li>
+<li><strong>(3)</strong> The single highest-leverage action I took was [Z].</li>
+</ol>
+<div class="expected-block"><strong>EXPECTED:</strong> Reflection captured. Patterns emerge across sprints if you do this every time.</div>
+</div>
+<div class="day-checklist">
+<h4>End of Day 14 Checklist</h4>
+<ul>
+<li>Final metrics report saved as PDF</li>
+<li>Sprint 2 brief sent to Nik with deadline</li>
+<li>Personal reflection captured (3 sentences)</li>
+</ul>
+<div class="day-totals">Expected signups: <strong>0</strong> · Spend: <strong>$0 (sprint over)</strong></div>
+</div>
+</section>
+<section class="appendix" id="appendix-a">
+<h2>Appendix A — Complete Copy Kit</h2>
+<p class="lead">Every string used in the sprint, by section. Source of truth: <code>_assets/copy_kit.json</code>.</p>
+<h3>Taglines (length-verified)</h3>
+<div class="kit-block"><div class="kit-key">60_char <span class="kit-len">(46 chars)</span></div><div class="kit-val">AI scores every dish so you never order wrong.</div></div>
+<div class="kit-block"><div class="kit-key">100_char <span class="kit-len">(100 chars)</span></div><div class="kit-val">ForkFox uses AI to score individual dishes at 3,600+ restaurants. Know what to order before you sit.</div></div>
+<div class="kit-block"><div class="kit-key">160_char <span class="kit-len">(147 chars)</span></div><div class="kit-val">ForkFox scores individual dishes — not restaurants — using AI. 3,600+ dishes rated across Philly and SF. Know exactly what to order. Free iOS beta.</div></div>
+<h3>Descriptions (length-verified)</h3>
+<div class="kit-block"><div class="kit-key">short_250 <span class="kit-len">(249 chars)</span></div><div class="kit-val">ForkFox is an AI-powered iOS app that scores individual dishes — not restaurants. We&#39;ve scored 3,600+ dishes across Philadelphia and the Bay Area on quality, value, execution, and consistency. Free TestFlight beta. Know what to order before you sit.</div></div>
+<div class="kit-block"><div class="kit-key">medium_500 <span class="kit-len">(490 chars)</span></div><div class="kit-val">ForkFox is an AI-powered iOS app that scores individual dishes — not restaurants. We use a patent-pending algorithm to read thousands of reviews per restaurant and score each dish on four axes: quality, value, execution, and consistency. 3,600+ dishes scored across Philadelphia and the San Francisco Bay Area. Beta users average 11-minute sessions (food apps average 2-3). Founded 2026 by Ali Mabsoute. Free iOS beta via TestFlight — invite arrives within 24 hours of signup at forkfox.ai.</div></div>
+<div class="kit-block"><div class="kit-key">long_1000 <span class="kit-len">(912 chars)</span></div><div class="kit-val">ForkFox is an AI-powered iOS app that scores individual dishes at restaurants — not the restaurants themselves. We use a patent-pending algorithm to read thousands of reviews per restaurant, extract dish-level signal, and score each dish 0-100 on four axes: quality, value, execution, and consistency. 3,600+ dishes scored so far across Philadelphia and the San Francisco Bay Area. The score is personalized — your 94 won&#39;t match your cousin&#39;s 94, because palates differ and ForkFox learns yours. Real example: 47 ramen bowls scored across 12 Philadelphia restaurants. We tell you which broth, which noodle, which neighborhood. Beta users average 11-minute sessions (most food apps average 2-3 minutes). Currently iOS-only, free TestFlight beta — invite arrives within 24 hours of email signup at forkfox.ai. Founded 2026 by Ali Mabsoute and Nik. Building the dish-level layer the food internet has been missing.</div></div>
+<div class="kit-block"><div class="kit-key">full_2000 <span class="kit-len">(1462 chars)</span></div><div class="kit-val">ForkFox is an AI-powered iOS app that scores individual dishes at restaurants — not the restaurants themselves. The food internet has been stuck on restaurant-level scoring for 20 years (Yelp, Google, OpenTable, Resy all rate the place, not the plate). The actual question — what should I order? — has been left to gut, friends, and review-mining. ForkFox solves that with a patent-pending algorithm that reads thousands of reviews per restaurant, extracts dish-level signal, and scores each dish 0-100 on four axes: quality, value, execution, and consistency. As of May 2026 we&#39;ve scored 3,600+ dishes across Philadelphia and the San Francisco Bay Area. The score is personalized — your 94 won&#39;t match your cousin&#39;s 94, because palates differ and ForkFox learns yours from the dishes you rate over time. Real numbers from the data: 47 ramen bowls scored across 12 Philly restaurants. 89 BYO entrees scored across the East Passyunk and Italian Market corridors. 134 brunch dishes across the Mission and Marina. Beta users average 11-minute sessions, vs the 2-3 minute industry average for food apps — that gap is the product proof. Currently iOS-only via TestFlight (Android and App Store forthcoming). Free beta — sign up at forkfox.ai and the TestFlight invite arrives within 24 hours. Founded 2026 by Ali Mabsoute (ali@forkfox.ai) and engineering co-founder Nik. Headquartered in Philadelphia. Building the dish-level layer the food internet has been missing.</div></div>
+<h3>Bios</h3>
+<div class="kit-block"><div class="kit-key">instagram_150 <span class="kit-len">(98 chars)</span></div><div class="kit-val">AI scores individual dishes at 3,600+ restaurants. Philly + Bay Area. Free iOS beta — link in bio.</div></div>
+<div class="kit-block"><div class="kit-key">twitter_160 <span class="kit-len">(135 chars)</span></div><div class="kit-val">Building ForkFox: AI that scores individual dishes (not restaurants). 3,600+ dishes rated in Philly + SF Bay. Free iOS beta. forkfox.ai</div></div>
+<div class="kit-block"><div class="kit-key">directory_200 <span class="kit-len">(167 chars)</span></div><div class="kit-val">ForkFox uses AI to score individual dishes at restaurants. 3,600+ dishes rated across Philadelphia and the San Francisco Bay Area. Free iOS TestFlight beta. forkfox.ai</div></div>
+<h3>Founder bio</h3>
+<div class="kit-block"><div class="kit-key">short <span class="kit-len">(126 chars)</span></div><div class="kit-val">Ali Mabsoute, co-founder of ForkFox. Building AI that scores individual dishes at restaurants, not the restaurants themselves.</div></div>
+<div class="kit-block"><div class="kit-key">long <span class="kit-len">(552 chars)</span></div><div class="kit-val">Ali Mabsoute is the co-founder of ForkFox, an AI-powered iOS app that scores individual dishes at 3,600+ restaurants across Philadelphia and the SF Bay Area. Before ForkFox, Ali led growth and analytics work at AmEx, Masco, and Hyatt and held research roles tied to BlackRock. He started ForkFox in 2026 with engineering co-founder Nik after years of cross-referencing Yelp reviews, Reddit threads, and Eater write-ups every time he wanted to know what to order. The food internet rates the restaurant; nobody rates the dish. ForkFox is the dish layer.</div></div>
+<h3>DM templates</h3>
+<div class="kit-block"><div class="kit-key">initial_outreach <span class="kit-len">(334 chars)</span></div><div class="kit-val">Hey {name}, loved your {recent_post_topic} post — especially {specific_detail}. I&#39;ve been building something that scores individual dishes in Philly using AI (think Yelp but for plates, not places). 3,600+ dishes rated so far. Would love for you to try it and tell me what you think. Free on TestFlight, no pressure at all. forkfox.ai</div></div>
+<div class="kit-block"><div class="kit-key">followup_3day <span class="kit-len">(173 chars)</span></div><div class="kit-val">Hey {name}, just bumping this — totally understand if it&#39;s not your thing. If you do check it out, I&#39;d genuinely love your honest take. Either way, keep posting great stuff.</div></div>
+<div class="kit-block"><div class="kit-key">positive_response <span class="kit-len">(258 chars)</span></div><div class="kit-val">Awesome — TestFlight invite link is here: https://testflight.apple.com/join/8nF9WTdF. Takes about 2 minutes to install. After you&#39;ve tried 2-3 dishes, drop me a line on what you&#39;d change first. ali@forkfox.ai or just DM here. Thanks for taking a swing at it.</div></div>
+<h3>Ad copy variants</h3>
+<div class="kit-block"><div class="kit-key">instagram_story_A</div>
+<div class="kit-sub"><strong>primary_text:</strong> Find the best dish near you in 5 seconds. AI ranks 3,600+ dishes across Philly + SF.</div>
+<div class="kit-sub"><strong>cta:</strong> Learn More</div>
+<div class="kit-sub"><strong>headline:</strong> AI ranks the dish, not the place</div>
+</div>
+<div class="kit-block"><div class="kit-key">instagram_story_B</div>
+<div class="kit-sub"><strong>primary_text:</strong> Stop scrolling Yelp. AI scored 3,600+ dishes — know what to order before you sit.</div>
+<div class="kit-sub"><strong>cta:</strong> Learn More</div>
+<div class="kit-sub"><strong>headline:</strong> Free iOS beta · Philly + SF</div>
+</div>
+<div class="kit-block"><div class="kit-key">reddit_ad_A</div>
+<div class="kit-sub"><strong>title:</strong> AI scores individual dishes at 3,600+ Philly restaurants — free iOS beta</div>
+<div class="kit-sub"><strong>body:</strong> Tired of cross-referencing Yelp and Reddit? ForkFox scores the dish, not the restaurant. forkfox.ai</div>
+</div>
+<div class="kit-block"><div class="kit-key">reddit_ad_B</div>
+<div class="kit-sub"><strong>title:</strong> Built a Rotten Tomatoes for individual dishes. 3,600+ scored in Philly + SF. iOS beta.</div>
+<div class="kit-sub"><strong>body:</strong> Free TestFlight beta. Founders are reading every comment. forkfox.ai</div>
+</div>
+<h3>Reddit posts</h3>
+<div class="kit-block"><div class="kit-key">r/alphaandbetausers — [iOS Beta] ForkFox — AI scores individual dishes (not restaurants) at 3,600+ spots in Philly + SF</div>
+<pre class="kit-body">Hey r/alphaandbetausers,
+
+Looking for testers for ForkFox, an iOS app that scores individual dishes at restaurants. The pitch: every food app rates the restaurant. None of them rate the actual plate. ForkFox does.
+
+**What it does**
+- Reads thousands of reviews per restaurant, extracts dish-level signal, scores each dish 0-100 on quality, value, execution, and consistency
+- 3,600+ dishes scored so far across Philadelphia + the SF Bay Area
+- Score is personalized — your 94 won&#39;t match your cousin&#39;s 94 because palates differ and the app learns yours
+- Real example: 47 ramen bowls scored across 12 Philly restaurants. We tell you which broth, which noodle, which neighborhood
+
+**What I want from you**
+- Install via TestFlight (free), use it for a real meal decision, tell me what&#39;s broken
+- Honest feedback — tell me where the score feels wrong
+- Especially looking for users in Philadelphia or the Bay Area (those are the cities currently covered)
+
+**The catch**
+- iOS only right now (no Android, no web)
+- TestFlight install is ~6 steps and ~2 minutes if you don&#39;t already have TestFlight
+- We&#39;re 2 founders, not a 50-person team — replies on bug reports are personal, not canned
+
+**How to install**
+- forkfox.ai → enter email, TestFlight invite arrives within 24 hours
+- Or scan the QR on the homepage if you&#39;re on a phone
+
+Will reply to every comment in this thread. Thanks for taking a swing at it.
+
+— Ali (founder)
+ali@forkfox.ai</pre></div>
+<div class="kit-block"><div class="kit-key">r/phillyfood — I scored 47 ramen bowls across 12 Philly spots — the 5 best by broth, noodle, and neighborhood</div>
+<pre class="kit-body">I&#39;ve been scoring individual dishes at Philly restaurants for the past few months — not the restaurants overall, the actual dishes. The full ramen analysis took ~3 weeks. 47 bowls, 12 restaurants, scored on broth richness, noodle texture, chashu quality, value, and consistency across visits.
+
+**Top 5 by total score:**
+
+1. **Tonkotsu at [Restaurant A]** — South Philly. The broth has been simmered 18+ hours. Noodles cooked to order, not pre-portioned. Egg yolk is consistently jammy. Value: $16. Best ramen in Philly under $20.
+
+2. **Spicy miso at [Restaurant B]** — Center City. Spice is built from chili oil, not chili paste, so it doesn&#39;t muddy the broth. Cabbage is fresh. The miso depth is real, not just salty.
+
+3. **Shoyu at [Restaurant C]** — Fishtown. The most consistent bowl in the city — 4 visits, identical execution. Chashu is the standout. Slightly thin broth keeps it from #1.
+
+4. **Tantanmen at [Restaurant D]** — Rittenhouse. Sesame paste is house-ground. Nuttier than any other tantanmen I&#39;ve had in Philly. Value is the issue: $22 puts it in pricier territory than the bowl quite earns.
+
+5. **Vegan tonkotsu-style at [Restaurant E]** — University City. Mushroom-based broth that genuinely passes for tonkotsu in blind taste. Best vegan ramen in the city by a wide margin.
+
+**A few patterns from the data:**
+
+- Best ramen in Philly is in South Philly, not Center City
+- Price ≠ quality. The $16 bowl beat the $24 bowl 4 times out of 5 in head-to-head scoring
+- Egg quality is the cheapest fix and the most often missed — bowls with consistent jammy yolks scored ~12 points higher on average than bowls with hard yolks
+- Lunch hours are more consistent than dinner (less rush variance)
+
+If you want the full data set or to see how I scored each bowl, I built an iOS app called ForkFox that does this kind of dish-level scoring — Philly + SF Bay covered, free TestFlight beta at forkfox.ai. The ramen analysis is in there along with 3,500+ other dishes.
+
+But I posted this because the data is interesting on its own. Curious what others&#39; top-3 ramen bowls in Philly are — I&#39;ll add the missing ones to the next analysis.
+
+— Ali</pre></div>
+<div class="kit-block"><div class="kit-key">r/sideproject — Built an AI that scores individual dishes (not restaurants) at 3,600+ spots — here&#39;s what we learned</div>
+<pre class="kit-body">Been building ForkFox with my co-founder Nik since late 2025. Shipping the iOS TestFlight beta now. Sharing what we learned, the stack, and where we got stuck.
+
+**The thesis**
+
+Every food app (Yelp, Google, OpenTable, Resy, Beli) rates the *restaurant*. None rate the actual *dish*. The real question — what should I order — has been left to gut + Reddit + review-mining. We&#39;re building the dish layer.
+
+**The stack**
+
+- Backend: Python + FastAPI on Vercel Fluid Compute
+- Data pipeline: scrapes review aggregators (rate-limited per ToS), feeds dish extraction LLM, scores on 4 axes (quality, value, execution, consistency)
+- Frontend: native iOS (Swift + SwiftUI). No React Native, no cross-platform. Native because food is sensory and the app needs to be fast and beautiful.
+- AI: GPT-4o-mini for review-text extraction, Claude Sonnet 4.6 for dish-level synthesis, custom embedding model for personalization
+- Storage: Postgres + pgvector on Supabase
+
+**What&#39;s working**
+
+- Beta users average 11-minute sessions. Industry average for food apps is 2-3 minutes. The product is sticky for the people who reach it.
+- Personalization is the moat. Your 94 ≠ your cousin&#39;s 94 because palates differ. Cold-start problem solved by ~5 dish ratings to get to a useful personalized score.
+- 3,600+ dishes scored across Philadelphia + SF Bay Area in 6 months. Each new restaurant takes ~15 min to score (review extraction is mostly automated).
+
+**What&#39;s not working**
+
+- TestFlight install is brutal. 6 steps, ~2-3 minutes if you don&#39;t already have TestFlight. App Store conversion is ~10-15%, TestFlight is 3-5%. Real cost to acquire users right now.
+- Acquisition. Engineering an app and acquiring users for it are two completely different problems. We&#39;re in week 3 of a real growth sprint and I keep underestimating how much marketing infrastructure has to exist before paid ads do anything.
+- Restaurant onboarding. We have a B2B side at forkfox.ai/business — getting restaurant owners to claim their listing is harder than scoring the dishes.
+
+**Open beta**
+
+Free iOS TestFlight beta at forkfox.ai. Honest feedback welcome — especially what feels off or where the score doesn&#39;t match your taste. ali@forkfox.ai if you want to talk shop.
+
+Happy to answer anything in the comments.</pre></div>
+<div class="kit-block"><div class="kit-key">r/philly — I&#39;ve been scoring individual Philly restaurant dishes with AI for 6 months — 3,600+ scored, looking for testers</div>
+<pre class="kit-body">Disclosure: I&#39;m the founder. Not a sponsored post.
+
+Quick story. I got tired of cross-referencing Yelp + Reddit + Eater every time I wanted to know what to order at a Philly restaurant. So I built an AI that does it for me. It&#39;s called ForkFox. It scores *dishes*, not restaurants — because the actual question when you sit down is what to order, not where to go.
+
+3,600+ Philly + Bay Area dishes scored so far across all the usual neighborhoods (Fishtown, South Philly, East Passyunk, Italian Market, Center City, Rittenhouse, University City). Free iOS app, currently in TestFlight beta. Looking for Philly foodies to try it and tell me where the scores feel off.
+
+If you want to give it a shot: forkfox.ai (sign up with your email, TestFlight invite arrives within 24 hours, or scan the QR on the homepage if you&#39;re on your phone).
+
+If you don&#39;t want to install anything but have a hot take on the best dish at any specific Philly restaurant, drop it in the comments — I&#39;ll add it to the next scoring batch and report back.
+
+Thanks,
+Ali</pre></div>
+<div class="kit-block"><div class="kit-key">r/bayareafood — I scored 89 brunch dishes across Mission, Marina, and Sunset — the 5 best by what&#39;s actually on the plate</div>
+<pre class="kit-body">Spent the last few months scoring individual brunch dishes at Bay Area restaurants — not the restaurants overall, the actual plates. 89 brunch dishes across 23 Mission, Marina, and Sunset spots. Scored on quality, value, execution, and consistency across multiple visits.
+
+**Top 5 brunch dishes by total score:**
+
+1. **Dutch baby at [Restaurant A]** — Mission. Comes out of the oven puffed properly (most places under-bake them). Lemon and powdered sugar are sufficient — no need for syrup. $18, easily worth it.
+
+2. **Shakshuka at [Restaurant B]** — Sunset. Tomato base is reduced, not loose. Eggs are perfectly poached every visit. Bread is grilled, not toasted. The most consistent brunch dish I&#39;ve scored in SF.
+
+3. **Chilaquiles verdes at [Restaurant C]** — Mission. Sauce is house-made and acidic. Chips don&#39;t go soggy on the plate. Value is the standout: $14 for a portion that&#39;s actually filling.
+
+4. **Eggs Benedict (smoked salmon) at [Restaurant D]** — Marina. Hollandaise has actual lemon. English muffin is house-baked. Salmon is sliced fresh, not from a pre-pack. Pricey at $22 but the only place in the city doing all three right.
+
+5. **Avocado toast (do-not-skip version) at [Restaurant E]** — Sunset. The avocado toast that justifies the genre. Sourdough is from [bakery], avocado is properly ripe (not unripe-but-firm), seasoning is salt + lemon + chili oil. $14 and you&#39;ll think about it for a week.
+
+**A few patterns:**
+
+- Sunset &gt; Mission for brunch consistency. Mission has more variance.
+- Hollandaise is the cheapest tell of a serious brunch kitchen — the bad ones are jarred or pre-made, the good ones taste like lemon and butter
+- Chilaquiles in SF are massively underrated relative to LA — the data shows the average SF chilaquiles outscores the average LA chilaquiles in our dataset
+
+If you want the full data set, I built an iOS app called ForkFox that does this kind of dish-level scoring — Bay Area + Philly covered, free TestFlight beta at forkfox.ai. Brunch analysis is in there along with 3,500+ other dishes.
+
+Posting because the data is interesting on its own. Curious what others&#39; top brunch picks are — I&#39;ll add the misses to the next round.
+
+— Ali</pre></div>
+<h3>Indie Hackers post</h3>
+<div class="kit-block"><div class="kit-key">Building ForkFox — 6 months in, here&#39;s what we&#39;ve learned about dish-level food scoring (667 words)</div>
+<pre class="kit-body">Hey IH,
+
+My co-founder Nik and I have been building ForkFox since late 2025. Shipping the iOS TestFlight beta now. Want to share what we learned, what&#39;s working, what&#39;s not, and what we&#39;d do differently.
+
+**The product**
+
+ForkFox scores individual dishes at restaurants — not the restaurants themselves. We use a patent-pending algorithm to read thousands of reviews per restaurant, extract dish-level signal, and score each dish 0-100 on four axes: quality, value, execution, and consistency.
+
+As of May 2026: 3,600+ dishes scored across Philadelphia and the San Francisco Bay Area.
+
+**Why we built it**
+
+The food internet has been stuck on restaurant-level scoring for 20 years. Yelp, Google, OpenTable, Resy, Beli all rate the place. The actual question — what should I order — has been left to gut, friends, and review-mining. We thought there was a real wedge in scoring the plate, not the place.
+
+**What&#39;s working**
+
+- **Engagement is real.** Beta users average 11-minute sessions. Industry average for food apps is 2-3 minutes. When people find ForkFox, they stay.
+- **Personalization works.** Your 94 won&#39;t match your cousin&#39;s 94 because palates differ. We solve cold-start with ~5 dish ratings — after that the personalized score is meaningfully different from the average.
+- **The pSEO engine is compounding.** We&#39;ve published 30+ neighborhood + cuisine guides on forkfox.ai/carte/. Three weeks in they&#39;re not ranking yet (Google takes 3-6 months on a new domain), but the asset is there.
+
+**What&#39;s not working**
+
+- **TestFlight is brutal.** App Store install is 3 steps and 15 seconds. TestFlight is 6 steps and 2-3 minutes. Conversion drops from ~10-15% (App Store benchmark) to 3-5% (TestFlight reality). Every paid ad we run costs 2-3x what it would post-App-Store.
+- **Acquisition is a different muscle than building.** I&#39;m an engineer who can also do marketing. Nik is an engineer. Neither of us are full-time marketers. We&#39;re learning that building marketing infrastructure (landing pages, copy kit, ad creative, Reddit accounts with karma history, influencer relationships) takes months of consistent work BEFORE paid spend produces ROI.
+- **B2B is harder than we thought.** ForkFox has a restaurant-owner side at forkfox.ai/business. Getting owners to claim their listing requires real outreach, not just &quot;build it and they&#39;ll come.&quot; We have ~5 founding restaurant partners interested; we want 20+ before App Store launch.
+
+**The numbers**
+
+- Domain age: 3 weeks
+- Articles published (pSEO): 34+
+- Beta signups so far: ~30 (mostly Bay Area through warm network)
+- Real Philadelphia visitors in last 14 days (audited from GA4): 1
+- Spend on paid acquisition to date: $0 (Meta restriction was lifted last week, ads about to start)
+- Bot share of GA4 traffic: 64% (Meta link-preview crawlers from data-center cities)
+
+**What we&#39;d do differently**
+
+- **Set up Meta ads on Day 1**, not Day 60. The Meta Business restriction took 2 weeks to clear and burned half our pre-launch window.
+- **Build the /beta landing page before any paid spend.** We&#39;re about to launch ads and just realized we don&#39;t have a dedicated TestFlight install landing page. That&#39;s a Day-Negative-1 task that should have been Day 1.
+- **Pick one city, not two.** Philly + Bay Area sounds great in the deck. In practice, the 2-person team can only credibly compete in one geography in the short term. We should have been Philly-only for the first 60 days.
+- **Don&#39;t burn one-shot platforms early.** We were tempted to launch on Product Hunt during TestFlight. We didn&#39;t. Saving PH + Hacker News + major press for the App Store launch (when conversion is 3x higher).
+
+**What&#39;s next**
+
+- 14-day acquisition sprint starting Mon May 12
+- App Store submission targeted for late June
+- Product Hunt launch the day the App Store version goes live
+
+If you want to try the beta: forkfox.ai (free, TestFlight invite within 24 hours).
+
+If you have feedback on the build journey or want to talk shop, ali@forkfox.ai.
+
+Thanks IH for being a place where you can post the actual numbers.
+
+— Ali</pre></div>
+<h3>Email templates (press)</h3>
+<div class="kit-block"><div class="kit-key">local_press</div>
+<div class="kit-sub"><strong>To:</strong> &lt;press contact at outlet&gt;</div>
+<div class="kit-sub"><strong>Subject:</strong> Philly food data: 3,600+ dishes scored across the city by AI</div>
+<pre class="kit-body">Hi {outlet_name} team,
+
+I&#39;m Ali, co-founder of ForkFox — an AI that scores individual dishes (not restaurants) at Philly and Bay Area spots. We&#39;ve scored 3,600+ dishes so far. The data is interesting: 47 ramen bowls across 12 Philadelphia restaurants, 89 BYO entrees across East Passyunk and the Italian Market, full neighborhood-level breakdowns by cuisine and value tier.
+
+A few story angles I think might land with your readers:
+
+  - The 10 highest-scored dishes in Philly under $20 (by neighborhood)
+  - Why dish-level scoring matters: same restaurant, same stars, very different dishes
+  - How AI can read 50,000 reviews and surface the consensus best plate
+
+I can pull custom data for any of these — happy to send a CSV or write a guest post. We&#39;re in TestFlight beta now (forkfox.ai), App Store launch later this summer.
+
+No rush. Let me know if anything is interesting.
+
+Thanks,
+Ali Mabsoute
+ForkFox
+ali@forkfox.ai</pre></div>
+<div class="kit-block"><div class="kit-key">tourism_partnership</div>
+<div class="kit-sub"><strong>To:</strong> partnerships@visitphilly.com</div>
+<div class="kit-sub"><strong>Subject:</strong> ForkFox: dish-level data for Visit Philly&#39;s food coverage</div>
+<pre class="kit-body">Hi Visit Philly partnerships team,
+
+I&#39;m Ali, co-founder of ForkFox — an AI that scores individual dishes at Philadelphia restaurants. As of May 2026 we&#39;ve scored 3,600+ dishes across Center City, South Philly, Fishtown, East Passyunk, the Italian Market, and surrounding neighborhoods.
+
+A few ways I think this could be useful for Visit Philly:
+
+  - Curated dish lists by neighborhood for visitor itineraries (e.g. &#39;top 5 dishes in East Passyunk under $25&#39;)
+  - Data feeds for Visit Philly&#39;s editorial team
+  - Co-branded content highlighting under-the-radar dishes at well-known restaurants
+
+No cost, no commercial ask — we&#39;re in iOS TestFlight beta and the priority is getting the data in front of people who care about Philly food. Happy to share a sample dish-level dataset or hop on a 15-min call.
+
+Thanks,
+Ali Mabsoute
+ForkFox  ·  forkfox.ai  ·  ali@forkfox.ai</pre></div>
+<div class="kit-block"><div class="kit-key">restaurant_owner</div>
+<div class="kit-sub"><strong>To:</strong> &lt;owner email or info@&gt;</div>
+<div class="kit-sub"><strong>Subject:</strong> Your top-scored dish at {restaurant_name} on ForkFox</div>
+<pre class="kit-body">Hi {owner_name},
+
+I&#39;m Ali, co-founder of ForkFox. We&#39;ve built an AI that scores individual dishes (not restaurants) at Philadelphia spots. Your {dish_name} scored {score} on our scale — among the top {ranking} in {neighborhood} for {category}.
+
+We&#39;re in iOS TestFlight beta with Philly foodies right now. No cost to you — we&#39;re building the definitive guide to what to order in Philly, and {restaurant_name} is already in it.
+
+Two asks:
+
+  1. Would you be open to sharing the link with your regulars? It helps them order better and drives repeat visits for you.
+  2. If anything in the score breakdown looks off, I&#39;d love to hear it. We want the algorithm grounded in what operators actually see.
+
+Link for your regulars: forkfox.ai
+My email: ali@forkfox.ai
+
+Thanks,
+Ali Mabsoute
+ForkFox</pre></div>
+</section>
+<section class="appendix" id="appendix-b">
+<h2>Appendix B — Influencer Database</h2>
+<p class="lead">38 Philadelphia food-content handles. Tier A = curated by founder + Firecrawl-enriched. Tier B = Firecrawl search-discovered (verify before outreach).</p>
+<table class="data-table"><thead><tr><th>Tier</th><th>Handle</th><th>Name</th><th>Followers</th><th>Channel</th><th>Email</th></tr></thead><tbody>
+<tr><td>A</td><td>@phillyfoodgirl</td><td>Kass</td><td>61600</td><td>Email</td><td>kass@phillyfoodgirl.com</td></tr>
+<tr><td>A</td><td>@josheatsphilly</td><td>Josh Moore</td><td></td><td>Email</td><td>josheatsphilly@gmail.com</td></tr>
+<tr><td>A</td><td>@dietstartstomorrow.phl</td><td>Emily</td><td>19900</td><td>Email</td><td>dietstartstomorrowphl@gmail.com</td></tr>
+<tr><td>A</td><td>@katieeatsphilly</td><td>Katie</td><td>15100</td><td>Email</td><td>katieeatsphilly@gmail.com</td></tr>
+<tr><td>A</td><td>@figi.rated</td><td>Fiona Golden</td><td>15000</td><td>Instagram DM</td><td></td></tr>
+<tr><td>A</td><td>@phillyfooddude</td><td>(unknown)</td><td>11700</td><td>Instagram DM</td><td></td></tr>
+<tr><td>A</td><td>@jenicainphilly</td><td>Jenica</td><td>9100</td><td>Instagram DM</td><td></td></tr>
+<tr><td>A</td><td>@thephillyfoodblog</td><td>Tara Fowler</td><td>7900</td><td>Instagram DM</td><td></td></tr>
+<tr><td>A</td><td>@loveatourfirstbite</td><td>Laura + Maura</td><td>6900</td><td>Email</td><td>the3philareviewers@gmail.com</td></tr>
+<tr><td>A</td><td>@eats_with_deezy</td><td>Deezy</td><td></td><td>Email</td><td>eats.with.deezy@gmail.com</td></tr>
+<tr><td>A</td><td>@feedingtime</td><td>(unknown)</td><td></td><td>Instagram DM</td><td></td></tr>
+<tr><td>A</td><td>@phillyfoodies</td><td>Mollie Dronson</td><td>87000</td><td>Email</td><td>phlfoodies@gmail.com</td></tr>
+<tr><td>A</td><td>@wanderingpassports_</td><td>Lauren &amp; Aaron</td><td>40200</td><td>Email</td><td>passports.wandering@gmail.com</td></tr>
+<tr><td>A</td><td>@styledtoatea</td><td>Tyshaniek</td><td>13100</td><td>Email</td><td>hello@styledtoatea.com</td></tr>
+<tr><td>A</td><td>@exact_ley</td><td>Ashley Baldwin</td><td>216000</td><td>Instagram DM</td><td></td></tr>
+<tr><td>B</td><td>@comfortandfloyd</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@backyard_cravings</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@reel</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@molliedronson</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@gmail.com</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@myphillyjawn</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@chefdawnburrell</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@prettyinpassyunk</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@fishtownpasta</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@haydenloiseau</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@215phillyfood</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@brousy</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@emiliaphilly</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@jacobdoesphilly</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@jacob</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@phillyfoodladies</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@jean</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@jljupiter</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@phillymag</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+<tr><td>B</td><td>@impulse.food</td><td></td><td>verify manually</td><td>Instagram DM (no email known yet)</td><td></td></tr>
+</tbody></table></section>
+<section class="appendix" id="appendix-c">
+<h2>Appendix C — Directory Submission Tracker</h2>
+<p class="lead">All 18 directory targets across the sprint. Status placeholders fill at end of sprint via Day 13 audit.</p>
+<table class="data-table"><thead><tr><th>Day</th><th>Directory</th><th>Account</th><th>Pricing</th><th>Status</th></tr></thead><tbody>
+<tr><td>Day 1</td><td>BetaList</td><td>admin@</td><td>Free or $39+</td><td>—</td></tr>
+<tr><td>Day 1</td><td>Crunchbase</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 1</td><td>Wellfound</td><td>ali@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 1</td><td>Product Hunt CS</td><td>alimabsoute@gmail</td><td>Free (NOT a launch)</td><td>—</td></tr>
+<tr><td>Day 1</td><td>Launch Sentinel</td><td>admin (own platform)</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 2</td><td>AlternativeTo</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 2</td><td>Peerlist</td><td>ali@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 2</td><td>Uneed</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 2</td><td>AppAdvice</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 3</td><td>Startup Stash</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 3</td><td>Fazier</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 3</td><td>BetaBound</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 4</td><td>SaaSHub</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 7</td><td>f6s</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 7</td><td>Indie Hackers</td><td>ali@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 10</td><td>MicroLaunch</td><td>admin@</td><td>Free</td><td>—</td></tr>
+<tr><td>Day 10</td><td>Yelp for Business</td><td>admin@</td><td>Free</td><td>—</td></tr>
+</tbody></table></section>
+<section class="appendix" id="appendix-d">
+<h2>Appendix D — Budget Scenarios</h2>
+<h3>$20/day budget (default — Week 1)</h3>
+<table class="data-table"><thead><tr><th>Channel</th><th>Daily</th><th>Targeting</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Reddit Ads</td><td>$10</td><td>r/phillyfood, r/philadelphia, iOS only, Philly DMA, 21-44</td><td>2 variants, kill loser after 72h</td></tr>
+<tr><td>Instagram Ads</td><td>$10</td><td>Philly +25mi, iOS, 21-40, Food interests, IG only</td><td>Stories + Reels + Feed, 2 variants</td></tr>
+</tbody></table>
+<h3>$100/day budget (if Week 2 unlocks)</h3>
+<table class="data-table"><thead><tr><th>Channel</th><th>Daily</th><th>Targeting</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Instagram Ads</td><td>$40</td><td>$20 Philly + $20 Bay Area. iOS, 21-40, Food interests</td><td>Scale winning variant from Week 1</td></tr>
+<tr><td>Reddit Ads</td><td>$25</td><td>Add r/foodporn, r/Cooking. Keep iOS + Philly DMA</td><td>Scale winning variant</td></tr>
+<tr><td>IG Influencer Boost</td><td>$20</td><td>Boost any post a responding influencer shares</td><td>Only if an influencer actually posts</td></tr>
+<tr><td>Facebook Ads</td><td>$15</td><td>Philly, iOS, 25-40, Dining Out interests</td><td>Test FB placement separately from IG</td></tr>
+</tbody></table>
+<h3>Ramp schedule (do NOT jump straight to $100/day)</h3>
+<ul><li>Day 8: $40 (double the winners from Week 1)</li>
+<li>Day 9: $60</li>
+<li>Day 10: $80</li>
+<li>Day 11+: $100</li></ul>
+<p>Reason: Meta's conversion-mode algorithm needs ramp stability. Jumping budget 5x in one day resets learning.</p>
+</section>
+<section class="appendix" id="appendix-e">
+<h2>Appendix E — Why Organic Hasn't Worked Yet</h2>
+<p class="lead">Physics, not performance. ForkFox is at week 3 of a 6-month process.</p>
+<p>ForkFox's domain went live around April 20, 2026. The 14-day sprint starts May 12. That's less than 4 weeks of domain age. Industry timeline for new-domain organic SEO (Google Search Central, Ahrefs 2025 study, BrandLume + Whitehat-SEO 2026 reports):</p>
+<table class="data-table"><thead><tr><th>Stage</th><th>Industry timeline</th><th>ForkFox status (May 25)</th></tr></thead><tbody>
+<tr><td>Stage 1 — Indexing (Google discovers pages)</td><td>Days to weeks</td><td>In progress</td></tr>
+<tr><td>Stage 2 — First impressions in Search Console</td><td>~6 weeks after indexing</td><td>Not reached</td></tr>
+<tr><td>Stage 3 — First meaningful organic clicks</td><td>~Month 3 (~90 days)</td><td>Not reached</td></tr>
+<tr><td>Stage 4 — Ranking stabilization</td><td>Months 4-6</td><td>Not reached</td></tr>
+<tr><td>Stage 5 — Competitive keyword rankings</td><td>6-12 months</td><td>Not reached</td></tr>
+</tbody></table>
+<p><strong>Compounding bad luck:</strong> Google's March 2026 Core Update rolled out March 27 - April 8. ForkFox's content went live in the immediate aftermath. New content during a core update gets the slowest ramp because it's re-evaluated during stabilization.</p>
+<h3>Channel-by-channel reality check</h3>
+<table class="data-table"><thead><tr><th>Channel</th><th>Why it hasn't fired</th><th>Good news</th></tr></thead><tbody>
+<tr><td>Programmatic SEO (Google)</td><td>Pre-indexing phase; March core update aftermath</td><td>Compounding asset; every week accumulates value</td></tr>
+<tr><td>Instagram</td><td>Bio was empty until May 10; pipeline disrupted</td><td>Real Day 1 is now; per-platform crons live</td></tr>
+<tr><td>Facebook ads</td><td>Meta Business restriction (cleared); billing missing</td><td>2 minutes to unblock; nothing to fix</td></tr>
+<tr><td>Reddit</td><td>Not tried</td><td>Free, immediate, communities are active (= this sprint)</td></tr>
+<tr><td>Pinterest</td><td>3-6 month algorithm horizon</td><td>Pins planted compound for 6+ months</td></tr>
+</tbody></table>
+<p class="callout">Re-frame: this is opportunity backlog, not failure data. Every channel ForkFox has invested in is either pre-ramp or untried. The sprint itself is the activation event.</p>
+</section>
+<section class="appendix" id="appendix-f">
+<h2>Appendix F — The iOS TestFlight Friction Problem</h2>
+<p class="lead">Every install projection in this sprint multiplies normal click-to-install rates by ~0.4 to account for TestFlight friction. Here's why.</p>
+<h3>The funnel comparison</h3>
+<table class="data-table"><thead><tr><th>Step</th><th>App Store</th><th>TestFlight</th></tr></thead><tbody>
+<tr><td>1. See ad/post → tap</td><td>Lands in App Store</td><td>Lands on forkfox.ai (NOT App Store)</td></tr>
+<tr><td>2. See proof</td><td>Star rating, reviews, screenshots, "Get"</td><td>Site says "join beta" — most users don't know TestFlight</td></tr>
+<tr><td>3. Install</td><td>Tap "Get" → Face ID → 10 seconds</td><td>Search App Store for TestFlight, install it first</td></tr>
+<tr><td>4-5. Continue</td><td>Done</td><td>Return to invite link → tap Accept → tap Install</td></tr>
+<tr><td>6. Result</td><td>App on home screen, blue Open</td><td>App with yellow BETA badge, no reviews</td></tr>
+</tbody></table>
+<h3>The math (1,000 ad impressions)</h3>
+<table class="data-table"><thead><tr><th>Step</th><th>App Store path</th><th>TestFlight path</th></tr></thead><tbody>
+<tr><td>Ad impressions</td><td>1,000</td><td>1,000</td></tr>
+<tr><td>On iOS (~55% iOS share)</td><td>550</td><td>550</td></tr>
+<tr><td>Have TestFlight installed</td><td>n/a</td><td>55 (already in)</td></tr>
+<tr><td>Will install TestFlight first</td><td>n/a</td><td>124 of 495</td></tr>
+<tr><td>Total CAN install</td><td>550</td><td>179</td></tr>
+<tr><td>Complete the install flow</td><td>55-82</td><td>54</td></tr>
+<tr><td><strong>Effective conversion</strong></td><td><strong>5.5-8.2%</strong></td><td><strong>~5.4%</strong></td></tr>
+<tr><td><strong>Cost per install ($1.05-$1.85 Philly CPC)</strong></td><td><strong>$7-$12</strong></td><td><strong>$20-$50</strong></td></tr>
+</tbody></table>
+<h3>Mitigation tactics (built into this sprint)</h3>
+<ol>
+<li><strong>NEVER link directly to TestFlight invite.</strong> Always link to forkfox.ai/beta — a dedicated landing page with a 30-sec screen recording, 3-step visual install guide, FAQ, and social proof.</li>
+<li><strong>Frame as EXCLUSIVE, not EXPERIMENTAL.</strong> "Get early access before App Store" beats "download our beta."</li>
+<li><strong>Target audiences who already know TestFlight.</strong> Tech workers, Drexel/UPenn/Temple students, tech-account followers on IG.</li>
+<li><strong>QR code strategy</strong> for any physical/event distribution: QR → /beta landing page (NOT direct TestFlight link).</li>
+<li><strong>The fix is the App Store launch.</strong> TestFlight is a 6-week problem. Once on the App Store, every install is back to 3 steps and 15 seconds.</li>
+</ol>
+<p class="callout">This sprint's install projections (12-50 across $20/day or $100/day) all assume TestFlight friction. App Store launch projections will be 2-3x higher per dollar spent.</p>
+</section>
+</div></body>
+</html>

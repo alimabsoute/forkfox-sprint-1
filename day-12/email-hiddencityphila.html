@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMAIL: HIDDEN CITY PHILADELPHIA · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 12 (Press + Partnerships)</a>
+  <div class="eyebrow">Day 12 · Field Reference</div>
+  <h1>Email: Hidden City Philadelphia</h1>
+  <div class="subtitle">Local-history-and-culture editorial pitch</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Header</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">From: ali@forkfox.ai
+To: editor@hiddencityphila.org
+   (verify current contact at hiddencityphila.org/contact — editor may be different)
+Subject: Dish-level data for Hidden City's restaurant features</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Verbatim)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Hi Hidden City team,
+
+I'm Ali, co-founder of ForkFox — an AI that scores individual dishes
+(not restaurants) at Philadelphia spots. As of May 2026 we've scored
+3,600+ dishes across Center City, South Philly, Fishtown, East Passyunk,
+the Italian Market, and surrounding neighborhoods.
+
+I'm a long-time Hidden City reader and noticed your editorial often
+surfaces under-the-radar restaurants and chefs. ForkFox's data is
+particularly good at finding dishes (and rooms) that haven't broken
+into the Eater / PhillyMag rotation yet — the 89-scored brisket at a
+West Philly spot nobody's writing about, the consistently-best wonton
+soup in Chinatown that doesn't get attention.</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">A few story angles I think could fit Hidden City</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- The 10 highest-scored dishes in Philly under $15 (by neighborhood)\n- Hidden gems: dishes that scored 90+ at restaurants without\n  significant press coverage\n- Neighborhood deep-dives: every scored dish in [Brewerytown /\n  Point Breeze / Mt Airy], with dish-level analysis")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- The 10 highest-scored dishes in Philly under $15 (by neighborhood)
+- Hidden gems: dishes that scored 90+ at restaurants without
+  significant press coverage
+- Neighborhood deep-dives: every scored dish in [Brewerytown /
+  Point Breeze / Mt Airy], with dish-level analysis</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">I can pull custom data for any of these — happy to send a CSV or write
+a guest piece. We're in TestFlight beta now (forkfox.ai), App Store
+launch later this summer.
+
+Would love to hear if any of this is useful or if there's a better angle.
+
+Thanks,
+Ali Mabsoute
+ForkFox  ·  forkfox.ai  ·  ali@forkfox.ai</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Sending</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Log in tracker → Press tab.
+2. Hidden City's editorial team is small — 7-day follow-up if no response.
+3. If they reply, ask which neighborhood is highest priority for them
+   right now and tailor the data pull to that.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 12</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REDDIT POST: r/philly · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 6 (Builder Communities)</a>
+  <div class="eyebrow">Day 6 · Field Reference</div>
+  <h1>Reddit Post: R/philly</h1>
+  <div class="subtitle">Local community, conversational, founder disclosure</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    Open this URL → <a href="https://www.reddit.com/r/philly/" target="_blank" rel="noopener">https://www.reddit.com/r/philly/</a>
+    
+    <br>Sign in with: <strong>your personal Reddit account (NOT a brand account — disclose founder status in comments if asked)</strong>
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Title (Paste Into Title Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">I've been scoring individual Philly restaurant dishes with AI for 6 months — 3,600+ scored, looking for testers</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Flair (If Available)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Discussion</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Into Body Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Disclosure: I'm the founder. Not a sponsored post.
+
+Quick story. I got tired of cross-referencing Yelp + Reddit + Eater every time I wanted to know what to order at a Philly restaurant. So I built an AI that does it for me. It's called ForkFox. It scores *dishes*, not restaurants — because the actual question when you sit down is what to order, not where to go.
+
+3,600+ Philly + Bay Area dishes scored so far across all the usual neighborhoods (Fishtown, South Philly, East Passyunk, Italian Market, Center City, Rittenhouse, University City). Free iOS app, currently in TestFlight beta. Looking for Philly foodies to try it and tell me where the scores feel off.
+
+If you want to give it a shot: forkfox.ai (sign up with your email, TestFlight invite arrives within 24 hours, or scan the QR on the homepage if you're on your phone).
+
+If you don't want to install anything but have a hot take on the best dish at any specific Philly restaurant, drop it in the comments — I'll add it to the next scoring batch and report back.
+
+Thanks,
+Ali</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Posting</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Refresh every 30 min for the next 4 hours. Reply to EVERY comment.
+2. If a mod removes the post, do NOT repost. Note the reason if given.
+3. Save the post URL — log in tracker → Reddit tab.
+4. Track upvotes + comments at 24h, 48h, 7d marks for the sprint review.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Post Rules (Per Spec)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">- This sub: see _assets/subreddit_rules.json for full rules
+- Founder disclosure: ALWAYS disclose if asked "are you the founder?"
+- Self-promo ratio: only post here once per week max.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 6</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

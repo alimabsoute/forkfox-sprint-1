@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REDDIT POST: r/alphaandbetausers · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 4 (First Outreach Day)</a>
+  <div class="eyebrow">Day 4 · Field Reference</div>
+  <h1>Reddit Post: R/alphaandbetausers</h1>
+  <div class="subtitle">Direct beta pitch — sub welcomes them</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    Open this URL → <a href="https://www.reddit.com/r/alphaandbetausers/" target="_blank" rel="noopener">https://www.reddit.com/r/alphaandbetausers/</a>
+    
+    <br>Sign in with: <strong>your personal Reddit account (NOT a brand account — disclose founder status in comments if asked)</strong>
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Title (Paste Into Title Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">[iOS Beta] ForkFox — AI scores individual dishes (not restaurants) at 3,600+ spots in Philly + SF</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Flair (If Available)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Beta or iOS</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Into Body Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Hey r/alphaandbetausers,
+
+Looking for testers for ForkFox, an iOS app that scores individual dishes at restaurants. The pitch: every food app rates the restaurant. None of them rate the actual plate. ForkFox does.
+
+**What it does**
+- Reads thousands of reviews per restaurant, extracts dish-level signal, scores each dish 0-100 on quality, value, execution, and consistency
+- 3,600+ dishes scored so far across Philadelphia + the SF Bay Area
+- Score is personalized — your 94 won't match your cousin's 94 because palates differ and the app learns yours
+- Real example: 47 ramen bowls scored across 12 Philly restaurants. We tell you which broth, which noodle, which neighborhood
+
+**What I want from you**
+- Install via TestFlight (free), use it for a real meal decision, tell me what's broken
+- Honest feedback — tell me where the score feels wrong
+- Especially looking for users in Philadelphia or the Bay Area (those are the cities currently covered)
+
+**The catch**
+- iOS only right now (no Android, no web)
+- TestFlight install is ~6 steps and ~2 minutes if you don't already have TestFlight
+- We're 2 founders, not a 50-person team — replies on bug reports are personal, not canned
+
+**How to install**
+- forkfox.ai → enter email, TestFlight invite arrives within 24 hours
+- Or scan the QR on the homepage if you're on a phone
+
+Will reply to every comment in this thread. Thanks for taking a swing at it.
+
+— Ali (founder)
+ali@forkfox.ai</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Posting</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Refresh every 30 min for the next 4 hours. Reply to EVERY comment.
+2. If a mod removes the post, do NOT repost. Note the reason if given.
+3. Save the post URL — log in tracker → Reddit tab.
+4. Track upvotes + comments at 24h, 48h, 7d marks for the sprint review.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Post Rules (Per Spec)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">- This sub: see _assets/subreddit_rules.json for full rules
+- Founder disclosure: ALWAYS disclose if asked "are you the founder?"
+- Self-promo ratio: only post here once per week max.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 4</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMAIL: BILLY PENN (LOCAL PHILLY PRESS) · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 12 (Press + Partnerships)</a>
+  <div class="eyebrow">Day 12 · Field Reference</div>
+  <h1>Email: Billy Penn (Local Philly Press)</h1>
+  <div class="subtitle">Civic-data story angle pitch</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Header</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">From: ali@forkfox.ai
+To: tips@billypenn.com
+   (or specific food / culture editor if you can find one — try
+    michael@billypenn.com or whoever currently runs the food beat)
+Subject: Philly food data: 3,600+ dishes scored across the city by AI</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Verbatim)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Hi Billy Penn team,
+
+I'm Ali, co-founder of ForkFox — an AI that scores individual dishes
+(not restaurants) at Philly restaurants. We've scored 3,600+ dishes
+so far across Philadelphia neighborhoods.
+
+Billy Penn's audience is exactly the engaged-Philadelphian persona that
+benefits from this kind of data. A few angles I think could land with</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">your readers</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- \"Where are the best dishes in Philly under $20?\" with neighborhood\n  breakdowns and dish-level scoring\n- \"Same restaurant, very different dishes\": how AI scoring exposes\n  that the menu, not the venue, is what to evaluate\n- \"Which Philly restaurants are punching above their Yelp rating?\"\n  \u2014 restaurants with a 3.5-star Yelp average but multiple 90+ scored\n  dishes (i.e. underrated)\n- A \"ForkFox Philly map\" feature: every scored dish, filterable by\n  neighborhood and price, embedded as a Billy Penn micro-site")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- "Where are the best dishes in Philly under $20?" with neighborhood
+  breakdowns and dish-level scoring
+- "Same restaurant, very different dishes": how AI scoring exposes
+  that the menu, not the venue, is what to evaluate
+- "Which Philly restaurants are punching above their Yelp rating?"
+  — restaurants with a 3.5-star Yelp average but multiple 90+ scored
+  dishes (i.e. underrated)
+- A "ForkFox Philly map" feature: every scored dish, filterable by
+  neighborhood and price, embedded as a Billy Penn micro-site</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">I can pull any of these as a CSV today. Happy to write a guest piece or
+provide data + quote for one your team writes. We're in iOS TestFlight
+beta now (forkfox.ai), App Store launch later this summer.
+
+Thanks for considering. Big fan of what Billy Penn does for civic Philly
+journalism.
+
+Ali Mabsoute
+ForkFox · forkfox.ai · ali@forkfox.ai</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Sending</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Log in tracker → Press tab.
+2. Billy Penn replies fast when they reply (small team, action-oriented).
+   3-day follow-up if no response — but no more after that.
+3. If they reply YES, the underrated-restaurants angle has the best
+   click-through track record for civic publications.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 12</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

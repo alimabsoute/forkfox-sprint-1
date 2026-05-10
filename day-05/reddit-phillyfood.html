@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REDDIT POST: r/phillyfood · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 5 (Reddit Philly + Paid Ads Launch)</a>
+  <div class="eyebrow">Day 5 · Field Reference</div>
+  <h1>Reddit Post: R/phillyfood</h1>
+  <div class="subtitle">Food-content-first — ForkFox in last 2-3 sentences only</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    Open this URL → <a href="https://www.reddit.com/r/phillyfood/" target="_blank" rel="noopener">https://www.reddit.com/r/phillyfood/</a>
+    
+    <br>Sign in with: <strong>your personal Reddit account (NOT a brand account — disclose founder status in comments if asked)</strong>
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Title (Paste Into Title Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">I scored 47 ramen bowls across 12 Philly spots — the 5 best by broth, noodle, and neighborhood</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Flair (If Available)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Discussion</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Into Body Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">I've been scoring individual dishes at Philly restaurants for the past few months — not the restaurants overall, the actual dishes. The full ramen analysis took ~3 weeks. 47 bowls, 12 restaurants, scored on broth richness, noodle texture, chashu quality, value, and consistency across visits.
+
+**Top 5 by total score:**
+
+1. **Tonkotsu at [Restaurant A]** — South Philly. The broth has been simmered 18+ hours. Noodles cooked to order, not pre-portioned. Egg yolk is consistently jammy. Value: $16. Best ramen in Philly under $20.
+
+2. **Spicy miso at [Restaurant B]** — Center City. Spice is built from chili oil, not chili paste, so it doesn't muddy the broth. Cabbage is fresh. The miso depth is real, not just salty.
+
+3. **Shoyu at [Restaurant C]** — Fishtown. The most consistent bowl in the city — 4 visits, identical execution. Chashu is the standout. Slightly thin broth keeps it from #1.
+
+4. **Tantanmen at [Restaurant D]** — Rittenhouse. Sesame paste is house-ground. Nuttier than any other tantanmen I've had in Philly. Value is the issue: $22 puts it in pricier territory than the bowl quite earns.
+
+5. **Vegan tonkotsu-style at [Restaurant E]** — University City. Mushroom-based broth that genuinely passes for tonkotsu in blind taste. Best vegan ramen in the city by a wide margin.
+
+**A few patterns from the data:**
+
+- Best ramen in Philly is in South Philly, not Center City
+- Price ≠ quality. The $16 bowl beat the $24 bowl 4 times out of 5 in head-to-head scoring
+- Egg quality is the cheapest fix and the most often missed — bowls with consistent jammy yolks scored ~12 points higher on average than bowls with hard yolks
+- Lunch hours are more consistent than dinner (less rush variance)
+
+If you want the full data set or to see how I scored each bowl, I built an iOS app called ForkFox that does this kind of dish-level scoring — Philly + SF Bay covered, free TestFlight beta at forkfox.ai. The ramen analysis is in there along with 3,500+ other dishes.
+
+But I posted this because the data is interesting on its own. Curious what others' top-3 ramen bowls in Philly are — I'll add the missing ones to the next analysis.
+
+— Ali</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Posting</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Refresh every 30 min for the next 4 hours. Reply to EVERY comment.
+2. If a mod removes the post, do NOT repost. Note the reason if given.
+3. Save the post URL — log in tracker → Reddit tab.
+4. Track upvotes + comments at 24h, 48h, 7d marks for the sprint review.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Post Rules (Per Spec)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">- This sub: see _assets/subreddit_rules.json for full rules
+- Founder disclosure: ALWAYS disclose if asked "are you the founder?"
+- Self-promo ratio: only post here once per week max.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 5</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

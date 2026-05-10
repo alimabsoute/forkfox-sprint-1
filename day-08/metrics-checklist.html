@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>METRICS CHECKLIST (Day 8 + Day 13) · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 8 (Analyze + Optimize)</a>
+  <div class="eyebrow">Day 8 · Field Reference</div>
+  <h1>Metrics Checklist (Day 8 + Day 13)</h1>
+  <div class="subtitle">8-source pull list — GA4, Reddit Ads, Meta, TestFlight, more</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Header</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Use this exact list for every metrics pull.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">1. Ga4 (Forkfox.Ai)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Open: https://analytics.google.com → ForkFox property</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Pull these dimensions over the last 7 days</div>
+            <div class="field-meta">or whatever sprint window</div>
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Total users\n- Total sessions\n- Engaged sessions\n- Avg engagement time per session\n- Users by source / medium (filter to non-bot cities)\n- Real Philadelphia visitors (filter: City = Philadelphia, exclude Eagleville)\n- Real Bay Area visitors (filter: City IN [San Mateo, San Jose, San Francisco], exclude founder list)\n- iOS share of mobile traffic (Tech \u003e Operating system)\n- Form_submit events count (Events report)\n- /?signed-up=true page views (Pages and screens report)")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Total users
+- Total sessions
+- Engaged sessions
+- Avg engagement time per session
+- Users by source / medium (filter to non-bot cities)
+- Real Philadelphia visitors (filter: City = Philadelphia, exclude Eagleville)
+- Real Bay Area visitors (filter: City IN [San Mateo, San Jose, San Francisco], exclude founder list)
+- iOS share of mobile traffic (Tech > Operating system)
+- Form_submit events count (Events report)
+- /?signed-up=true page views (Pages and screens report)</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">Log into tracker → Daily Signups + Decision Log.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">2. Reddit Ads Dashboard</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Open: https://ads.reddit.com → Campaign view</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Pull per ad variant</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Impressions (last 7 days)\n- Clicks\n- CTR (click-through rate)\n- CPC (cost per click)\n- Total spend")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Impressions (last 7 days)
+- Clicks
+- CTR (click-through rate)
+- CPC (cost per click)
+- Total spend</div>
+        
+      </div>
+    
+  
+    
+      
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Calculate Cost Per Install</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "CPI = (total spend) / (TestFlight installs from Reddit ads UTM)")'>📋 Copy</button>
+        </div>
+        <div class="field-value">CPI = (total spend) / (TestFlight installs from Reddit ads UTM)</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">Log in tracker → Ads tab.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">3. Meta Ads Manager</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Open: https://business.facebook.com/adsmanager → Campaign view</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Same pulls as Reddit per ad variant</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Impressions\n- Link clicks (NOT total clicks \u2014 link clicks only)\n- Cost per link click\n- CTR (link click)\n- Frequency (impressions per user \u2014 if \u003e4, audience is fatiguing)\n- Total spend")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Impressions
+- Link clicks (NOT total clicks — link clicks only)
+- Cost per link click
+- CTR (link click)
+- Frequency (impressions per user — if >4, audience is fatiguing)
+- Total spend</div>
+        
+      </div>
+    
+  
+    
+      
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Pixel events count</div>
+            <div class="field-meta">last 7 days, Events Manager</div>
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- PageView\n- ViewContent (/beta page hits)\n- Lead (form_submit)\n\u2192 If Lead events \u2265 50 in past 7 days \u2192 conversion-mode unlock available.")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- PageView
+- ViewContent (/beta page hits)
+- Lead (form_submit)
+→ If Lead events ≥ 50 in past 7 days → conversion-mode unlock available.</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">Log in tracker → Ads tab.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">4. Reddit Organic</div>
+  
+  
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">For each post</div>
+            <div class="field-meta">open the post, scroll to top</div>
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Upvotes\n- Comments\n- Shares (if visible)\n- Crossposts")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Upvotes
+- Comments
+- Shares (if visible)
+- Crossposts</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">In your tracker → Reddit tab, log the 24h, 48h, 7d snapshots.</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">GA4 cross-reference</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- In GA4 \u2192 Acquisition \u2192 Sources, look for \"reddit.com\" referral.\n- Note clicks per post.")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- In GA4 → Acquisition → Sources, look for "reddit.com" referral.
+- Note clicks per post.</div>
+        
+      </div>
+    
+  
+  </div>
+  
+
+  
+  <div class="section-header">5. Dm Tracker</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Open tracker → Outreach tab.</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Calculate</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Total DMs sent (cumulative)\n- Reply rate (responses / total)\n- Install rate (installs / responses)")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Total DMs sent (cumulative)
+- Reply rate (responses / total)
+- Install rate (installs / responses)</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">Identify top-performing personalization angle (which restaurant references
+correlated with replies).</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">6. Apple Testflight Insights</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Open: https://appstoreconnect.apple.com → My Apps → ForkFox → TestFlight</div>
+    
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Pull</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "- Total installs (cumulative)\n- Active users (last 7 days)\n- Sessions (last 7 days)\n- Avg session duration")'>📋 Copy</button>
+        </div>
+        <div class="field-value">- Total installs (cumulative)
+- Active users (last 7 days)
+- Sessions (last 7 days)
+- Avg session duration</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">Cross-reference: TestFlight installs vs GA4 form_submit events. The
+ratio shows actual install conversion.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">7. Directory Status Audit</div>
+  
+  
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Google search each</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "\"ForkFox betalist\", \"ForkFox saashub\", \"ForkFox alternativeto\",\n\"ForkFox crunchbase\", \"ForkFox wellfound\", \"ForkFox indiehackers\"")'>📋 Copy</button>
+        </div>
+        <div class="field-value">"ForkFox betalist", "ForkFox saashub", "ForkFox alternativeto",
+"ForkFox crunchbase", "ForkFox wellfound", "ForkFox indiehackers"</div>
+        
+      </div>
+    
+  
+    
+      </div>
+      
+      <div class="section-block">Mark each as Live or Pending in tracker → Directories tab.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">8. Time Log</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Estimate hours spent on the sprint this week (Ali + Nik combined).
+Log in tracker → Decision Log: "Week N hours invested: X."
+
+Used for ROI calculation in sprint review.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">At The End</div>
+  
+  
+  
+    
+      <div class="field-grid">
+      <div class="field-card">
+        <div class="field-card-head">
+          <div>
+            <div class="field-label">Write 1 line in Decision Log</div>
+            
+          </div>
+          <button class="copy-btn" onclick='copyText(this, "\"Week N rollup: $[spend] \u2192 [installs] installs \u2192 $[CPI] blended CPI.\n Top channel: [X]. Bottom channel: [Y]. Plan: [Z].\"")'>📋 Copy</button>
+        </div>
+        <div class="field-value">"Week N rollup: $[spend] → [installs] installs → $[CPI] blended CPI.
+ Top channel: [X]. Bottom channel: [Y]. Plan: [Z]."</div>
+        
+      </div>
+    
+  
+  </div>
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 8</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

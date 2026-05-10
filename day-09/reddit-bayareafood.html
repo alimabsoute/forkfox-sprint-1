@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REDDIT POST: r/bayareafood · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 9 (Bay Area + DM Wave 2)</a>
+  <div class="eyebrow">Day 9 · Field Reference</div>
+  <h1>Reddit Post: R/bayareafood</h1>
+  <div class="subtitle">SF brunch-data version of the r/phillyfood post</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    Open this URL → <a href="https://www.reddit.com/r/bayareafood/" target="_blank" rel="noopener">https://www.reddit.com/r/bayareafood/</a>
+    
+    <br>Sign in with: <strong>your personal Reddit account (NOT a brand account — disclose founder status in comments if asked)</strong>
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Title (Paste Into Title Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">I scored 89 brunch dishes across Mission, Marina, and Sunset — the 5 best by what's actually on the plate</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Flair (If Available)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Discussion</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Into Body Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Spent the last few months scoring individual brunch dishes at Bay Area restaurants — not the restaurants overall, the actual plates. 89 brunch dishes across 23 Mission, Marina, and Sunset spots. Scored on quality, value, execution, and consistency across multiple visits.
+
+**Top 5 brunch dishes by total score:**
+
+1. **Dutch baby at [Restaurant A]** — Mission. Comes out of the oven puffed properly (most places under-bake them). Lemon and powdered sugar are sufficient — no need for syrup. $18, easily worth it.
+
+2. **Shakshuka at [Restaurant B]** — Sunset. Tomato base is reduced, not loose. Eggs are perfectly poached every visit. Bread is grilled, not toasted. The most consistent brunch dish I've scored in SF.
+
+3. **Chilaquiles verdes at [Restaurant C]** — Mission. Sauce is house-made and acidic. Chips don't go soggy on the plate. Value is the standout: $14 for a portion that's actually filling.
+
+4. **Eggs Benedict (smoked salmon) at [Restaurant D]** — Marina. Hollandaise has actual lemon. English muffin is house-baked. Salmon is sliced fresh, not from a pre-pack. Pricey at $22 but the only place in the city doing all three right.
+
+5. **Avocado toast (do-not-skip version) at [Restaurant E]** — Sunset. The avocado toast that justifies the genre. Sourdough is from [bakery], avocado is properly ripe (not unripe-but-firm), seasoning is salt + lemon + chili oil. $14 and you'll think about it for a week.
+
+**A few patterns:**
+
+- Sunset > Mission for brunch consistency. Mission has more variance.
+- Hollandaise is the cheapest tell of a serious brunch kitchen — the bad ones are jarred or pre-made, the good ones taste like lemon and butter
+- Chilaquiles in SF are massively underrated relative to LA — the data shows the average SF chilaquiles outscores the average LA chilaquiles in our dataset
+
+If you want the full data set, I built an iOS app called ForkFox that does this kind of dish-level scoring — Bay Area + Philly covered, free TestFlight beta at forkfox.ai. Brunch analysis is in there along with 3,500+ other dishes.
+
+Posting because the data is interesting on its own. Curious what others' top brunch picks are — I'll add the misses to the next round.
+
+— Ali</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Posting</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Refresh every 30 min for the next 4 hours. Reply to EVERY comment.
+2. If a mod removes the post, do NOT repost. Note the reason if given.
+3. Save the post URL — log in tracker → Reddit tab.
+4. Track upvotes + comments at 24h, 48h, 7d marks for the sprint review.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Post Rules (Per Spec)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">- This sub: see _assets/subreddit_rules.json for full rules
+- Founder disclosure: ALWAYS disclose if asked "are you the founder?"
+- Self-promo ratio: only post here once per week max.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 9</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>

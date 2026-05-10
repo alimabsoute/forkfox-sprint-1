@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REDDIT POST: r/SideProject · ForkFox Sprint</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <a class="back-link" href="index.html">Back to Day 6 (Builder Communities)</a>
+  <div class="eyebrow">Day 6 · Field Reference</div>
+  <h1>Reddit Post: R/sideproject</h1>
+  <div class="subtitle">Builder/maker audience, technical story angle</div>
+</div>
+
+<div class="toolbar">
+  <div class="open-url">
+    
+    Open this URL → <a href="https://www.reddit.com/r/SideProject/" target="_blank" rel="noopener">https://www.reddit.com/r/SideProject/</a>
+    
+    <br>Sign in with: <strong>your personal Reddit account (NOT a brand account — disclose founder status in comments if asked)</strong>
+  </div>
+  <button onclick="copyAll(this)">📋 Copy all fields</button>
+</div>
+
+
+  
+  <div class="section-header">Title (Paste Into Title Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Built an AI that scores individual dishes (not restaurants) at 3,600+ spots — here's what we learned</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Flair (If Available)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Show</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Body (Paste Into Body Field)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">Been building ForkFox with my co-founder Nik since late 2025. Shipping the iOS TestFlight beta now. Sharing what we learned, the stack, and where we got stuck.
+
+**The thesis**
+
+Every food app (Yelp, Google, OpenTable, Resy, Beli) rates the *restaurant*. None rate the actual *dish*. The real question — what should I order — has been left to gut + Reddit + review-mining. We're building the dish layer.
+
+**The stack**
+
+- Backend: Python + FastAPI on Vercel Fluid Compute
+- Data pipeline: scrapes review aggregators (rate-limited per ToS), feeds dish extraction LLM, scores on 4 axes (quality, value, execution, consistency)
+- Frontend: native iOS (Swift + SwiftUI). No React Native, no cross-platform. Native because food is sensory and the app needs to be fast and beautiful.
+- AI: GPT-4o-mini for review-text extraction, Claude Sonnet 4.6 for dish-level synthesis, custom embedding model for personalization
+- Storage: Postgres + pgvector on Supabase
+
+**What's working**
+
+- Beta users average 11-minute sessions. Industry average for food apps is 2-3 minutes. The product is sticky for the people who reach it.
+- Personalization is the moat. Your 94 ≠ your cousin's 94 because palates differ. Cold-start problem solved by ~5 dish ratings to get to a useful personalized score.
+- 3,600+ dishes scored across Philadelphia + SF Bay Area in 6 months. Each new restaurant takes ~15 min to score (review extraction is mostly automated).
+
+**What's not working**
+
+- TestFlight install is brutal. 6 steps, ~2-3 minutes if you don't already have TestFlight. App Store conversion is ~10-15%, TestFlight is 3-5%. Real cost to acquire users right now.
+- Acquisition. Engineering an app and acquiring users for it are two completely different problems. We're in week 3 of a real growth sprint and I keep underestimating how much marketing infrastructure has to exist before paid ads do anything.
+- Restaurant onboarding. We have a B2B side at forkfox.ai/business — getting restaurant owners to claim their listing is harder than scoring the dishes.
+
+**Open beta**
+
+Free iOS TestFlight beta at forkfox.ai. Honest feedback welcome — especially what feels off or where the score doesn't match your taste. ali@forkfox.ai if you want to talk shop.
+
+Happy to answer anything in the comments.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">After Posting</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">1. Refresh every 30 min for the next 4 hours. Reply to EVERY comment.
+2. If a mod removes the post, do NOT repost. Note the reason if given.
+3. Save the post URL — log in tracker → Reddit tab.
+4. Track upvotes + comments at 24h, 48h, 7d marks for the sprint review.</div>
+    
+  
+  
+  
+
+  
+  <div class="section-header">Post Rules (Per Spec)</div>
+  
+  
+  
+    
+      
+      
+      <div class="section-block">- This sub: see _assets/subreddit_rules.json for full rules
+- Founder disclosure: ALWAYS disclose if asked "are you the founder?"
+- Self-promo ratio: only post here once per week max.</div>
+    
+  
+  
+  
+
+
+<div class="done-bar">
+  <div class="done-text">Done? <strong>Mark it complete in your tracker</strong>, then go back to the day overview.</div>
+  <a href="index.html">← Back to Day 6</a>
+</div>
+
+</div>
+<script>
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.classList.add('copied');
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = original;
+    }, 1400);
+  }).catch(() => {
+    // Fallback: select the value
+    btn.textContent = 'Press Ctrl+C';
+  });
+}
+
+function copyAll(btn) {
+  const all = document.querySelectorAll('.field-value');
+  let blob = '';
+  all.forEach(el => {
+    const card = el.closest('.field-card');
+    const label = card.querySelector('.field-label').textContent;
+    blob += label + '\n  ' + el.textContent + '\n\n';
+  });
+  navigator.clipboard.writeText(blob).then(() => {
+    btn.textContent = 'Copied all fields ✓';
+    setTimeout(() => { btn.textContent = '📋 Copy all fields'; }, 1400);
+  });
+}
+</script>
+<script src="../tracker.js"></script>
+</body>
+</html>
