@@ -1,0 +1,26 @@
+{
+  "day": 30,
+  "date": "2026-06-10",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/09_order.png",
+      "caption_ig": "Found it. Now get it. Order, reserve, or pick up — without leaving the app. DoorDash, Uber Eats, Resy, call & pickup, all in one tap. Free iOS beta.\n\n#ForkFox #FoodApp #FoodOrder #DishNotRestaurant #BayAreaEats",
+      "caption_fb": "Once you know what you want, the rest should be one tap. ForkFox hands off to DoorDash, Uber Eats, Resy, or call-and-pickup — without ever leaving the app. We've finished the discovery; you just say where to send it.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodApp",
+        "#FoodOrder",
+        "#DishNotRestaurant",
+        "#BayAreaEats"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 7 seconds. iPhone screen recording. Dish detail page. Hand taps 'Order This Dish'. Sheet slides up with DoorDash + Uber Eats + Resy. Tap DoorDash. Confirmation. End frame: 'Found it. Now get it.' with 'get' in red.",
+      "suggested_time_iso": "2026-06-10T09:15:00-04:00"
+    }
+  ]
+}

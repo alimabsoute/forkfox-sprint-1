@@ -1,0 +1,26 @@
+{
+  "day": 27,
+  "date": "2026-06-07",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/08_every_craving.png",
+      "caption_ig": "Every craving. A verdict. The #1 dish in every cuisine — ranked for your block. Italian, Japanese, Indian, Mexican, soul food, dim sum. We've scored all of it.\n\n#ForkFox #FoodRanked #DishNotRestaurant #FoodSmart #PhillyEats",
+      "caption_fb": "Every cuisine has a verdict near you. Italian, Mexican, Japanese, Indian, Vietnamese, soul food, dim sum, BBQ. Pick a craving, see the #1 dish in that category, ranked for your neighborhood. No more cycling between five review apps.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodRanked",
+        "#DishNotRestaurant",
+        "#FoodSmart",
+        "#PhillyEats"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 8 seconds. A grid of cuisine icons (pasta, ramen, biryani, taco, pho). Camera zooms into each one and shows the #1 dish photo. End frame: 'Every craving. A verdict.' with 'verdict' in red.",
+      "suggested_time_iso": "2026-06-07T09:15:00-04:00"
+    }
+  ]
+}

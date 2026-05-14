@@ -1,0 +1,26 @@
+{
+  "day": 23,
+  "date": "2026-06-03",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/06_bushwick_burlingame.png",
+      "caption_ig": "From Bushwick to Burlingame. The best dish in every neighborhood. Walking or driving distance. Right now in Philly, SF, Oakland, NYC. Free iOS beta.\n\n#ForkFox #BayAreaEats #PhillyEats #NYCFood #DishNotRestaurant",
+      "caption_fb": "Every neighborhood has a #1. We've scored dishes in Bushwick. In Burlingame. In Fishtown, the Mission, Oakland's Fruitvale, North Philly, Sunset. Open the app, drop a pin, get the dish — by walking or driving distance, your call.",
+      "hashtags": [
+        "#ForkFox",
+        "#BayAreaEats",
+        "#PhillyEats",
+        "#NYCFood",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 9 seconds. Animated map zoom: starts on NYC at night, swoops to Philly, swoops to SF Bay. Red pins drop in each city. Final pin expands to a dish photo. End frame: 'From Bushwick to Burlingame.' with 'Burlingame' in red.",
+      "suggested_time_iso": "2026-06-03T09:15:00-04:00"
+    }
+  ]
+}

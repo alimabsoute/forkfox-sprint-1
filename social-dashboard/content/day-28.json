@@ -1,0 +1,26 @@
+{
+  "day": 28,
+  "date": "2026-06-08",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/07_filter_mood.png",
+      "caption_ig": "Date night is a different scoring problem. Ambiance: 30%. Pacing: 20%. Loudness ceiling: 75dB. One dish you'll fight over: required. We added a date-night filter that weights all of these. Use it.\n\n#ForkFox #DateNight #FoodAI #PhillyEats #BayAreaEats",
+      "caption_fb": "Picking a date-night spot isn't the same as picking lunch. You need ambiance, pacing, a noise floor that doesn't kill conversation, and at least one dish memorable enough to bring up six months later. Our date-night filter weights all of these — not just cuisine and rating.",
+      "hashtags": [
+        "#ForkFox",
+        "#DateNight",
+        "#FoodAI",
+        "#PhillyEats",
+        "#BayAreaEats"
+      ],
+      "image_gen_prompt": "Editorial photograph of a candlelit dinner table for two. Half-eaten dish, two wineglasses, low warm light. Square 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 8s. Two hands clinking wine glasses over a candlelit table. Soft jazz piano (no vocals). Text fades in: 'Date night, scored.'",
+      "suggested_time_iso": "2026-06-08T09:15:00-04:00"
+    }
+  ]
+}

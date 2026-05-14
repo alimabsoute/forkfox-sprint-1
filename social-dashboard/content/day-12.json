@@ -1,0 +1,26 @@
+{
+  "day": 12,
+  "date": "2026-05-23",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/04_why_one.png",
+      "caption_ig": "How we score: 5 axes, 100 points each. Execution. Ingredient quality. Ratio. Value. Ambiance. We read every review for those signals — not stars. The scorecard is on every dish page.\n\n#ForkFox #FoodRanked #FoodScience #DishNotRestaurant #FoodSmart",
+      "caption_fb": "Most apps give you a star average. We score 5 specific things — execution, ingredient quality, ratio, value, ambiance — and show you the scorecard on every dish page. No black box. You can see exactly why a dish got the rank it got.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodRanked",
+        "#FoodScience",
+        "#DishNotRestaurant",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "Clean radar chart on dark background, 5 axes labeled. Red plot line. Editorial graphic, no text. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 9s. Radar chart appears axis by axis with labels. Each label shows for ~1s. End frame: 'How we score.' Score axes named: execution, ingredient quality, ratio, value, ambiance.",
+      "suggested_time_iso": "2026-05-23T09:15:00-04:00"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "day": 19,
+  "date": "2026-05-30",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/05_anatomy.png",
+      "caption_ig": "The anatomy of every dish. Maillard crust. 80/20 grind. Bun-to-patty ratio. We read so you don't. Every dish broken down by what actually makes it great — and what cheaps it out.\n\n#ForkFox #FoodScience #DishNotRestaurant #FoodAnatomy #FoodSmart",
+      "caption_fb": "What's the difference between a great smash burger and a mid one? It's not vibes. It's Maillard crust temperature. It's the 80/20 fat ratio. It's whether the bun-to-patty ratio holds up after a bite. We scored every dish across these exact dimensions so you can pick by what matters, not by what's loudest.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodScience",
+        "#DishNotRestaurant",
+        "#FoodAnatomy",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 8 seconds. Macro close-up of a smash burger being compressed on a flat-top. Steam, crust forming. Labels pop in at each stage: 'Maillard crust forming', '80/20 grind', 'Bun-to-patty 1:1.2'. End frame: 'The anatomy of every dish.' with 'anatomy' in red.",
+      "suggested_time_iso": "2026-05-30T09:15:00-04:00"
+    }
+  ]
+}

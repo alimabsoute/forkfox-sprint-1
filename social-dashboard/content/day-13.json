@@ -1,0 +1,26 @@
+{
+  "day": 13,
+  "date": "2026-05-24",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "https://forkfox.ai/the-dish/cheesesteak-origin-myth/og.jpg",
+      "caption_ig": "Pat's vs. Geno's? Neither, actually. Our top-5 cheesesteaks in Philly: John's Roast Pork, Dalessandro's, Steve's Prince of Steaks, Joe's, Cleavers. The famous corner doesn't even crack the top 10. Data > tradition.\n\n#ForkFox #Cheesesteak #PhillyFood #PhillyEats #DishNotRestaurant",
+      "caption_fb": "The Pat's vs. Geno's debate is missing the actual top of the leaderboard. When you score Philly cheesesteaks by execution, ingredient quality, ratio, and value — John's Roast Pork, Dalessandro's, Steve's Prince, Joe's, and Cleavers outrank the famous corner. Sometimes the tourist version is just the most convenient version.",
+      "hashtags": [
+        "#ForkFox",
+        "#Cheesesteak",
+        "#PhillyFood",
+        "#PhillyEats",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 10s. Top-5 ranked cheesesteak shops in Philly counted down. Each card shows shop name + neighborhood + score. End on John's Roast Pork at #1 with full scorecard. No music.",
+      "suggested_time_iso": "2026-05-24T09:15:00-04:00"
+    }
+  ]
+}

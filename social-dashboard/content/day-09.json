@@ -1,0 +1,26 @@
+{
+  "day": 9,
+  "date": "2026-05-20",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "article_reshare",
+      "image_url": "https://forkfox.ai/the-dish/forkfox-origin-story/hero.jpg",
+      "caption_ig": "The ForkFox story started with a simple problem: restaurant discovery was broken. We spent eighteen months eating through Philadelphia, building a framework for understanding why restaurants work, and realized the algorithm was just a tool for seeing what was always there.\n\n#ForkFox #FoodIntelligence #Philadelphia #FoodAlgorithm #RestaurantDiscovery",
+      "caption_fb": "Why did we start ForkFox? Because in 2018, the best restaurant guide was still a coin flip. Three founders spent eighteen months eating their way through Philadelphia, asking one simple question: What if we could make restaurant discovery actually work? This is how an algorithm that notices what the guide misses came to exist.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodIntelligence",
+        "#Philadelphia",
+        "#FoodAlgorithm",
+        "#RestaurantDiscovery"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 8s. Editorial b-roll of the topic in 'Why We Started ForkFox: The Food Intelligence Story Behind the Algorithm'. Calm pace, no music vocals. End frame: article title + 'Link in bio.'",
+      "suggested_time_iso": "2026-05-20T09:15:00-04:00"
+    }
+  ]
+}

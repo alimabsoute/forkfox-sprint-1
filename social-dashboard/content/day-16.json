@@ -1,0 +1,26 @@
+{
+  "day": 16,
+  "date": "2026-05-27",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "article_reshare",
+      "image_url": "https://forkfox.ai/the-dish/italian-market-evolution/hero.jpg",
+      "caption_ig": "9th Street's Italian Market is thriving as a destination. It's slowly becoming something else as a neighborhood. We traced the blocks, talked to the families, and found out what happens when a market becomes mostly a place to visit.\n\n#ForkFox #ItalianMarket #SouthPhilly #Philadelphia #FoodEconomy",
+      "caption_fb": "Philadelphia's Italian Market is one of the oldest food neighborhoods in America. We walked 9th Street and found something uncomfortable: the storefronts stay, the families are changing, and the economics are shifting fast. What happens when a working market becomes a destination?",
+      "hashtags": [
+        "#ForkFox",
+        "#ItalianMarket",
+        "#SouthPhilly",
+        "#Philadelphia",
+        "#FoodEconomy"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 8s. Editorial b-roll of the topic in 'Italian Market South Philadelphia: 9th Street's Nonna Recipes Meet Fusion Futures'. Calm pace, no music vocals. End frame: article title + 'Link in bio.'",
+      "suggested_time_iso": "2026-05-27T09:15:00-04:00"
+    }
+  ]
+}

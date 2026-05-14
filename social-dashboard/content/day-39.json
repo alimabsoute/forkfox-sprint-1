@@ -1,0 +1,26 @@
+{
+  "day": 39,
+  "date": "2026-06-19",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/10_passport.png",
+      "caption_ig": "Your dish passport. Track everything you've tried. See what to eat next. Build a private log of every dish that mattered to you, scored on your taste, not the crowd's.\n\n#ForkFox #FoodLog #FoodTracker #DishNotRestaurant #FoodSmart",
+      "caption_fb": "Every dish you've tried, scored on your own taste, kept in a private passport only you see. The app learns what you actually like — bread quality, meat texture, ambiance — and ranks future dishes against your history, not the crowd's average.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodLog",
+        "#FoodTracker",
+        "#DishNotRestaurant",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 8 seconds. A passport-style book opens. Pages flip to show dish stamps — cheesesteak, ramen, taco, dosa. Stats panel: '24 dishes, 9 favorites, 3 Michelin spots'. End frame: 'Your dish passport.' with 'passport' in red.",
+      "suggested_time_iso": "2026-06-19T09:15:00-04:00"
+    }
+  ]
+}

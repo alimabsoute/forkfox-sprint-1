@@ -1,0 +1,26 @@
+{
+  "day": 25,
+  "date": "2026-06-05",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "article_reshare",
+      "image_url": "https://image.pollinations.ai/prompt/cinematic%20food%20photography%20%20restaurant%20%20%20moody%20warm%20light?width=1600&height=900&nologo=true&seed=9460",
+      "caption_ig": "The ghost kitchen era promised efficiency. The data shows something different: a 73% failure rate in Philadelphia, a delivery crash in San Francisco, and a warehouse graveyard in Oakland. Diners wanted to sit down all along.\n\n#ForkFox #GhostKitchens #RestaurantIndustry #FoodData #TrendAnalysis",
+      "caption_fb": "We analyzed five years of ghost kitchen data across Philadelphia, San Francisco, and Oakland. The story is striking: these delivery-only operations promised lower costs and faster scaling. What we found instead was a 65-73% failure rate, margin collapse, and a quiet return to dine-in culture. Here's why the model broke and what it reveals about how people actually want to eat.",
+      "hashtags": [
+        "#ForkFox",
+        "#GhostKitchens",
+        "#RestaurantIndustry",
+        "#FoodData",
+        "#TrendAnalysis"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 8s. Editorial b-roll of the topic in 'Ghost Kitchens and the Collapse of Dine-In: What the Data Reveals About the Restaurant Industry's Reckoning'. Calm pace, no music vocals. End frame: article title + 'Link in bio.'",
+      "suggested_time_iso": "2026-06-05T09:15:00-04:00"
+    }
+  ]
+}

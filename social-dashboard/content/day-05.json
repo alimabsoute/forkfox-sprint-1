@@ -1,0 +1,26 @@
+{
+  "day": 5,
+  "date": "2026-05-16",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "article_reshare",
+      "image_url": "https://forkfox.ai/the-dish/cheesesteak-origin-myth/hero.jpg",
+      "caption_ig": "The cheesesteak origin story dates to 1930. The cheese came in the 1940s. Cheez Whiz didn't exist until 1952. The \"authentic\" version of the sandwich is younger than the myth that describes it. Philly built this thing over decades, across the whole city, in shops that no travel writer has ever visited — and the best ones are still there. Link in bio for the full history.\n\n#Philadelphia #Cheesesteak #PhillyFood #FoodHistory #PatOlivieri #SouthPhilly #PhillyEats #ForkFox",
+      "caption_fb": "Everyone knows the cheesesteak was invented in 1930 by Pat Olivieri on a corner in South Philly. What most people don't know is that the cheese came a decade later, the Whiz didn't exist until 1952, and the sandwich that tourists line up for today wasn't fully assembled until well into the postwar years. The real cheesesteak history of Philadelphia is spread across the entire city — Roxborough, the Northeast, West Philly — in shops that have been making the sandwich for fifty years because it works, not because anyone is watching. What's your go-to spot that isn't on the tourist map?",
+      "hashtags": [
+        "#Philadelphia",
+        "#Cheesesteak",
+        "#PhillyFood",
+        "#FoodHistory",
+        "#PatOlivieri"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 8s. Editorial b-roll of the topic in 'Who Actually Invented the Cheesesteak? Unpacking the Olivieri Myth and What Philly Forgot'. Calm pace, no music vocals. End frame: article title + 'Link in bio.'",
+      "suggested_time_iso": "2026-05-16T09:15:00-04:00"
+    }
+  ]
+}

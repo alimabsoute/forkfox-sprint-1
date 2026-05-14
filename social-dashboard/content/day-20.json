@@ -1,0 +1,26 @@
+{
+  "day": 20,
+  "date": "2026-05-31",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "article_reshare",
+      "image_url": "https://forkfox.ai/the-dish/philly-beyond-cheesesteak/og.jpg",
+      "caption_ig": "Philly is not a cheesesteak city. It's a BYOB city, an Ethiopian corridor city, a Vietnamese-inside-the-Italian-Market city.\n\nWe mapped the food neighborhoods tourists don't reach. Here's what we found.\n\n#ForkFox #PhillyFood #PhillyEats #EatPhilly #HiddenGems",
+      "caption_fb": "The tourists go to Pat's and Geno's. The city goes somewhere else. Inside Philly's BYOB underground, the Italian Market's Vietnamese corner, and Baltimore Avenue's Ethiopian corridor — the dishes that actually define Philadelphia. Read the full piece at The Dish.",
+      "hashtags": [
+        "#ForkFox",
+        "#PhillyFood",
+        "#PhillyEats",
+        "#EatPhilly",
+        "#HiddenGems"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 8s. Editorial b-roll of the topic in 'What Philly Eats When It's Not Eating a Cheesesteak'. Calm pace, no music vocals. End frame: article title + 'Link in bio.'",
+      "suggested_time_iso": "2026-05-31T09:15:00-04:00"
+    }
+  ]
+}

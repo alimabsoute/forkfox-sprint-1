@@ -1,0 +1,26 @@
+{
+  "day": 10,
+  "date": "2026-05-21",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/01_outsmart.png",
+      "caption_ig": "Tourist traps win on convenience. Hidden gems win on craft. Our data flags both. The 'best cheesesteak' on every list isn't the best cheesesteak — it's the one closest to a hotel. We tell you the actual best one and how far it is.\n\n#ForkFox #HiddenGem #PhillyEats #DishNotRestaurant #FoodSmart",
+      "caption_fb": "Every food list ranks restaurants by what tourists will find easily, not by what's actually best. A tourist trap is usually fine and always nearby. A hidden gem is usually 20 minutes out of the way and usually worth it. Our data flags both so you can pick by your actual constraint.",
+      "hashtags": [
+        "#ForkFox",
+        "#HiddenGem",
+        "#PhillyEats",
+        "#DishNotRestaurant",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "Two-panel photo: left shows a busy tourist restaurant exterior at dusk, right shows a quiet neighborhood corner shop with a small queue. Editorial, calm. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 8s. Cross-fade: tourist line at famous spot → quiet neighborhood corner shop. Red pin drops on the second one. Text: 'Hidden gems win on craft.'",
+      "suggested_time_iso": "2026-05-21T09:15:00-04:00"
+    }
+  ]
+}

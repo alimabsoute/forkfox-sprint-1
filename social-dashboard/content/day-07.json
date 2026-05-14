@@ -1,0 +1,26 @@
+{
+  "day": 7,
+  "date": "2026-05-18",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/05_anatomy.png",
+      "caption_ig": "What's a Maillard crust? The brown crust on a seared steak. The crackle on a smashed burger. It happens when proteins + sugars hit ~300°F at the same time. We score every dish on whether the crust formed properly. No crust, no points.\n\n#ForkFox #FoodScience #FoodAnatomy #DishNotRestaurant #FoodSmart",
+      "caption_fb": "There's a chemical reason a smash burger tastes better than a regular one — the Maillard reaction. It's what happens when proteins and sugars hit roughly 300°F simultaneously, creating hundreds of new flavor compounds in seconds. Most restaurant burgers never get hot enough. We score every dish on whether the crust actually formed.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodScience",
+        "#FoodAnatomy",
+        "#DishNotRestaurant",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "Photograph, top-down, of a smash burger crust forming on a flat-top grill. Macro detail. Steam rising. Soft natural light. Warm tones. No text overlay. Square 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 10s. Macro slow-motion of a smash burger being pressed onto a screaming hot flat-top. Crust forming. Steam. Text overlay: 'Maillard crust. Why most burgers miss it.' Calm, editorial, no music.",
+      "suggested_time_iso": "2026-05-18T09:15:00-04:00"
+    }
+  ]
+}

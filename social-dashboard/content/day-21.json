@@ -1,0 +1,26 @@
+{
+  "day": 21,
+  "date": "2026-06-01",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/05_anatomy.png",
+      "caption_ig": "Bread-to-meat ratio kills 70% of sandwiches. Too much bread = dry. Too little = wet hands. The sweet spot for a cheesesteak is ~1:1.2 by weight. We score this on every meat-bread dish in the app.\n\n#ForkFox #FoodAnatomy #FoodScience #Cheesesteak #DishNotRestaurant",
+      "caption_fb": "Most sandwiches are killed by the wrong ratio. Too much bread and you taste filler. Too little and your hands are a mess in 30 seconds. The sweet spot for a Philadelphia cheesesteak is roughly 1 part bread to 1.2 parts meat by weight. We score this on every meat-and-bread dish.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodAnatomy",
+        "#FoodScience",
+        "#Cheesesteak",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "Cross-section macro photograph of a cheesesteak cut in half. Scale icon overlay showing 1:1.2 ratio. Editorial lighting. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 7s. Two cheesesteaks side-by-side: left over-bunned, right balanced. Scale animates in showing the ratio difference. End: 'Bread to meat 1:1.2.'",
+      "suggested_time_iso": "2026-06-01T09:15:00-04:00"
+    }
+  ]
+}

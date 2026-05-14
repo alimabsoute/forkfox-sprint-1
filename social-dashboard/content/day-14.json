@@ -1,0 +1,26 @@
+{
+  "day": 14,
+  "date": "2026-05-25",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/03_ask_anything.png",
+      "caption_ig": "Ask anything. Get the truth. An AI that compares dishes, validates picks, and never bluffs. \"Best smash burger in Philly?\" gives you the burger, not the restaurant. \"AVPN pizza near me?\" knows what AVPN means.\n\n#ForkFox #FoodAI #DishNotRestaurant #PhillyFood #FoodSmart",
+      "caption_fb": "We built an AI you can ask anything — best biryani near me, AVPN-certified pizza, date-night spot under $50, which cheesesteak is actually worth the line — and it answers with the dish, not the restaurant. It doesn't bluff. If it doesn't know, it tells you. Free iOS beta.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodAI",
+        "#DishNotRestaurant",
+        "#PhillyFood",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 8 seconds. iPhone screen recording style. A search bar types 'Best smash burger in Philly?' character by character. Result panel slides up showing 3 ranked burgers. End frame: 'Ask anything. Get the truth.' with 'truth' in red. Calm typing audio, no music.",
+      "suggested_time_iso": "2026-05-25T09:15:00-04:00"
+    }
+  ]
+}

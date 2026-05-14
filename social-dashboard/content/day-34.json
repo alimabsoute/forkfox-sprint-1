@@ -1,0 +1,26 @@
+{
+  "day": 34,
+  "date": "2026-06-14",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/09_order.png",
+      "caption_ig": "Scoring a dim sum cart: skin translucency, filling-to-wrapper ratio, sauce freshness, cart rotation speed. The best har gow we've scored: Yin Ji Rice Roll in Chinatown. 97/100. Walk-in.\n\n#ForkFox #DimSum #PhillyFood #FoodScience #DishNotRestaurant",
+      "caption_fb": "Scoring dim sum is its own discipline. We look at skin translucency (you should almost see the filling), filling-to-wrapper ratio, sauce freshness, and how fast the cart is rotating (cold dim sum is failed dim sum). The best har gow we've scored: Yin Ji Rice Roll in Philly Chinatown. 97/100.",
+      "hashtags": [
+        "#ForkFox",
+        "#DimSum",
+        "#PhillyFood",
+        "#FoodScience",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "Top-down macro of dim sum baskets — har gow, siu mai, char siu bao. Steam rising. Editorial restaurant lighting. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 8s. Macro of har gow being picked up with chopsticks. Skin is translucent. Scoring labels animate in: 'Skin: 9.5', 'Filling: 9.3'. End: 'Dim sum, scored.'",
+      "suggested_time_iso": "2026-06-14T09:15:00-04:00"
+    }
+  ]
+}

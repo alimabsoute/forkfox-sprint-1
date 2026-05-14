@@ -1,0 +1,26 @@
+{
+  "day": 38,
+  "date": "2026-06-18",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/07_filter_mood.png",
+      "caption_ig": "Walk-in availability is a quality signal we underweight. The spots without Resy aren't worse — they're often better and the owner has zero interest in tourist optimization. We added a walk-in filter. Use it.\n\n#ForkFox #WalkIn #FoodSmart #PhillyEats #DishNotRestaurant",
+      "caption_fb": "Walk-in availability is a signal we don't talk about enough. The spots that don't take reservations aren't worse — they're often better, run by owners with zero interest in optimizing for tourists or platform algorithms. We added a walk-in filter so you can find them.",
+      "hashtags": [
+        "#ForkFox",
+        "#WalkIn",
+        "#FoodSmart",
+        "#PhillyEats",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "A 'walk-in only' sign on a vintage diner door at night. Warm interior glow through window. Editorial. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 7s. Door of a small diner, 'WALK-IN ONLY' sign. Hand pushes door open. Warm interior. Text: 'The walk-in factor.'",
+      "suggested_time_iso": "2026-06-18T09:15:00-04:00"
+    }
+  ]
+}

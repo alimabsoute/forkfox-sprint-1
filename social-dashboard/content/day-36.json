@@ -1,0 +1,26 @@
+{
+  "day": 36,
+  "date": "2026-06-16",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/02_rank_dishes.png",
+      "caption_ig": "'Best' is a question, not an answer. Best for value? Best for first date? Best when you're hungover at 1am? Each gets a different #1. We ranked all of them separately. Pick your axis.\n\n#ForkFox #FoodRanked #FoodAI #DishNotRestaurant #FoodSmart",
+      "caption_fb": "There's no single 'best.' Best for value? Best for first date? Best when you're hungover at 1am? Best when your in-laws are visiting? Each gets a completely different answer. We score along all of these axes separately so you can ask the question that actually applies.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodRanked",
+        "#FoodAI",
+        "#DishNotRestaurant",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "Five #1 trophy badges in a row, each labeled with a different scenario (value, date, late-night, family, hangover). Editorial graphic. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 8s. Five tabs slide in: 'value', 'date', 'late-night', 'family', 'hangover'. Each shows a different #1 dish photo. End: 'Pick your axis.'",
+      "suggested_time_iso": "2026-06-16T09:15:00-04:00"
+    }
+  ]
+}

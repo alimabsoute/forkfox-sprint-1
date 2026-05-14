@@ -1,0 +1,26 @@
+{
+  "day": 18,
+  "date": "2026-05-29",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/01_outsmart.png",
+      "caption_ig": "Our algorithm sees a city as 3,600 dishes, each scored against 5 dimensions and ranked for the block they're on. The map isn't pins. It's an opinion about the best plate within a 10-minute walk.\n\n#ForkFox #FoodAI #BayAreaEats #PhillyEats #DishNotRestaurant",
+      "caption_fb": "We don't see a city as a list of restaurants. We see 3,600 individual dishes across Philly and the Bay Area, each scored on what actually makes that specific food great. The map you see in the app isn't a directory — it's an opinion.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodAI",
+        "#BayAreaEats",
+        "#PhillyEats",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "Aerial dark-mode map of San Francisco with red glowing dish pins clustered by neighborhood density. Editorial. Soft glow. 1080x1080 square crop.",
+      "video_gen_prompt": "Vertical 9:16, 9s. Camera flies over a dark-mode map. Pins illuminate neighborhood by neighborhood — Mission, Outer Sunset, North Beach. Text appears: '3,600 dishes scored.' Ends on ForkFox logo.",
+      "suggested_time_iso": "2026-05-29T09:15:00-04:00"
+    }
+  ]
+}

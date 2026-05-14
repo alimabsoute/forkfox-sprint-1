@@ -1,0 +1,26 @@
+{
+  "day": 33,
+  "date": "2026-06-13",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/04_why_one.png",
+      "caption_ig": "We show our scorecard for every rank. If a dish is #1, you can see exactly why — execution 92, ingredient 88, ratio 91, value 84, ambiance 79. No black box. Disagree? You can re-weight the axes yourself.\n\n#ForkFox #FoodRanked #FoodAI #DishNotRestaurant #FoodSmart",
+      "caption_fb": "Every rank in ForkFox comes with the full scorecard — 5 axes, scored 0-100. If you disagree with our weights, re-weight them yourself. The whole system is transparent because food preferences are subjective; the scoring shouldn't be hidden.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodRanked",
+        "#FoodAI",
+        "#DishNotRestaurant",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "Stylized scorecard graphic with 5 axes plotted, each showing a value. Dark background with red accent line. Editorial. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 9s. Scorecard fills in axis by axis with numbers. User finger drags a slider to re-weight 'ingredient quality' up. Final rank updates. End frame: 'Your weights, not ours.'",
+      "suggested_time_iso": "2026-06-13T09:15:00-04:00"
+    }
+  ]
+}

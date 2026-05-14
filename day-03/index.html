@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ForkFox Sprint · Day 3 · Local + Secondary Directories</title>
+<title>ForkFox Sprint · Day 3 · IG Cleanup + Dashboard Standup</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,13 +12,13 @@
 <div class="header">
   <a class="back-link" href="../index.html">Back to sprint overview</a>
   <div class="eyebrow">ForkFox Sprint · Week 1</div>
-  <h1>Day 3 · Local + Secondary Directories</h1>
-  <div class="meta">Wednesday, May 14, 2026</div>
-  <div class="total-time">⏱ Total time: 1.5 hours</div>
+  <h1>Day 3 · IG Cleanup + Dashboard Standup</h1>
+  <div class="meta">Thursday, May 14, 2026</div>
+  <div class="total-time">⏱ Total time: 2.5 hours</div>
 </div>
 
 <div class="theme-bar">
-  <strong>Today's focus:</strong> Three more directory listings (Startup Stash, Fazier, BetaBound) plus the Meta Business unblock so paid ads can launch on Day 5. Google Business Profile is deferred pending discussion with Nik on the address.
+  <strong>Today's focus:</strong> No directory submission today. Clean up Instagram, carve IG + FB out of the social auto-flow, build the social-dashboard MVP scaffold, and pre-populate dashboard content for Days 4–21.
 </div>
 
 
@@ -26,24 +26,21 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">1</div>
-    <div class="task-title">Google Business Profile (DEFERRED)</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">—</span></div>
-    <div class="time-badge">⏱ —</div>
+    <div class="task-title">Audit @forkfox.ai IG account + run fix_ig_hashtags.py</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">45 min</span></div>
+    <div class="time-badge">⏱ 45 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Skipping today. We need to discuss with Nik whether to use a home address, virtual office, or skip GBP entirely. Once decided, this becomes a 20-min task. Note in tracking spreadsheet: 'GBP deferred pending cofounder address decision.'</p>
+  <p class="intro">@forkfox.ai has accumulated some posts with broken or low-quality hashtag sets. Audit the last 30 posts and run <code>fix_ig_hashtags.py</code> on the backlog.</p>
 
   <ul class="step-list">
-    <li><strong>NO ACTION TODAY.</strong> When Ali + Nik align, the steps will be: (1) business.google.com → sign in with alimabsoute@gmail.com → (2) create listing → (3) category 'Software Company' → (4) submit for postcard verification.</li><li>If Nik prefers to skip GBP entirely, mark this row as <strong>permanently skipped</strong> in tracker and remove from future sprints.</li>
+    <li>Open the @forkfox.ai IG account in a browser.</li><li>Scroll the last 30 grid posts. Note any with broken hashtags, low engagement, or off-brand captions.</li><li>Run <code>fix_ig_hashtags.py</code> on the flagged backlog.</li><li>Spot-check 3 fixed posts manually before letting the script touch the rest.</li>
   </ul>
 
-  
-  
+  <div class="warn">Don't auto-edit captions — only the hashtag block at the bottom. The script is hashtag-only by design.</div>
 
-  
-
-  <div class="expected">0 today. Decision needed before next sprint.</div>
+  <div class="expected">IG hashtag backlog cleaned up. Account ready for the Day 4+ dashboard cadence.</div>
   </div>
 </div>
 
@@ -51,26 +48,19 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">2</div>
-    <div class="task-title">Startup Stash submission</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">15 min</span></div>
-    <div class="time-badge">⏱ 15 min</div>
+    <div class="task-title">Carve IG + FB out of post_social.py auto-flow</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">30 min</span></div>
+    <div class="time-badge">⏱ 30 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Free directory of startup tools. DA 65. Long-tail SEO play.</p>
+  <p class="intro">Threads, Bluesky, and Pinterest stay on auto-post. IG and FB get pulled into the new social-dashboard for human-in-the-loop control.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://startupstash.com" target="_blank" rel="noopener"><strong>https://startupstash.com</strong></a> — find <strong>Submit</strong> in the footer.</li><li>Sign up with <strong>admin@forkfox.ai</strong>.</li><li>Open the field reference below and paste field by field.</li><li>Upload logo when prompted.</li><li>Submit. Editorial review: 2-5 days.</li>
+    <li>Open <code>post_social.py</code> in the ForkFox pipeline.</li><li>Add a feature flag or platform-skip block that disables IG + FB auto-posting.</li><li>Keep Threads, Bluesky, Pinterest exactly as they are.</li><li>Run a dry-run to confirm only the 3 auto platforms fire.</li>
   </ul>
 
-
-    <a class="doc-link" href="startup-stash.html" target="_blank" rel="noopener">Open Startup Stash field reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_startup-stash.png" target="_blank" rel="noopener">Open Startup Stash logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-
-
-  <div class="expected">0 direct signups. Backlink + occasional discovery via Startup Stash newsletter.</div>
+  <div class="expected">Threads + Bluesky + Pinterest still auto. IG + FB no longer touched by the cron.</div>
   </div>
 </div>
 
@@ -78,26 +68,19 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">3</div>
-    <div class="task-title">Fazier submission</div>
+    <div class="task-title">Update AUTOMATION.md to document the split</div>
     <div class="task-collapsed-meta"><span class="collapsed-time">15 min</span></div>
     <div class="time-badge">⏱ 15 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Maker community + product launch directory. DA 81. Fast turnaround (often same-day approval).</p>
+  <p class="intro">Capture the new split (auto vs human-in-the-loop) so it doesn't get reverted on a future pipeline edit.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://www.fazier.com" target="_blank" rel="noopener"><strong>https://www.fazier.com</strong></a></li><li>Sign up with <strong>admin@forkfox.ai</strong>.</li><li>Find <strong>Submit a product</strong> or <strong>Add product</strong>.</li><li>Open the field reference and paste field by field.</li><li>Submit.</li>
+    <li>Open <code>forkfox/AUTOMATION.md</code>.</li><li>Add a section: "Auto platforms" (Threads, Bluesky, Pinterest) and "Dashboard platforms" (IG, FB).</li><li>Explain the rationale: IG + FB need human curation; the other 3 don't move the needle enough to warrant the same gate.</li><li>Commit the doc.</li>
   </ul>
 
-
-    <a class="doc-link" href="fazier.html" target="_blank" rel="noopener">Open Fazier field reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_fazier.png" target="_blank" rel="noopener">Open Fazier logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-
-
-  <div class="expected">1-3 signups within 48 hours if approved quickly. Maker audience is TestFlight-comfortable.</div>
+  <div class="expected">AUTOMATION.md reflects reality. Future-you knows why the split exists.</div>
   </div>
 </div>
 
@@ -105,26 +88,19 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">4</div>
-    <div class="task-title">BetaBound submission</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">15 min</span></div>
-    <div class="time-badge">⏱ 15 min</div>
+    <div class="task-title">Build social-dashboard MVP scaffold</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">45 min</span></div>
+    <div class="time-badge">⏱ 45 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Dedicated beta-testing community. Their entire user base WANTS to test betas. Highest-intent traffic in the entire directory list.</p>
+  <p class="intro">A simple per-day social content page that mirrors the sprint tracker. Each day has its own dashboard route (<code>/social-dashboard/day-XX.html</code>) with the IG + FB content ready to copy/schedule.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://betabound.com" target="_blank" rel="noopener"><strong>https://betabound.com</strong></a></li><li>Sign up with <strong>admin@forkfox.ai</strong>.</li><li>Find <strong>Submit a Beta</strong> or <strong>Run a Beta Test</strong>.</li><li>Open the field reference and paste field by field.</li><li>Specify platform: <strong>iOS (TestFlight)</strong>.</li><li>Compensation: <strong>None — early access only</strong>.</li>
+    <li>Scaffold the <code>social-dashboard/</code> directory under <code>public/</code>.</li><li>Create one HTML page per Day 4–42 (or a single template + per-day JSON — your call).</li><li>Each page surfaces: caption, image to upload, hashtag block, target platforms.</li><li>Link every Day 4+ sprint tracker page back to its matching dashboard page.</li>
   </ul>
 
-
-    <a class="doc-link" href="betabound.html" target="_blank" rel="noopener">Open BetaBound field reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_betabound.png" target="_blank" rel="noopener">Open BetaBound logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-
-
-  <div class="expected">3-10 signups over the sprint if accepted into their listings. Highest install intent of any directory.</div>
+  <div class="expected">Dashboard scaffold lives. Days 4–42 have shells ready to fill.</div>
   </div>
 </div>
 
@@ -132,29 +108,19 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">5</div>
-    <div class="task-title">Fill Meta Business info to unblock ads (PREREQUISITE for Day 5)</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">10 min</span></div>
-    <div class="time-badge">⏱ 10 min</div>
+    <div class="task-title">Pre-populate dashboard content for Days 4–21</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">45 min</span></div>
+    <div class="time-badge">⏱ 45 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">On Day 5 we launch Instagram ads. They won't run until Meta has business info on file. Fix that now so Day 5 isn't blocked.</p>
+  <p class="intro">Get 18 days of IG + FB content drafted up-front so the daily flow on Days 4–21 is just "open dashboard, schedule it."</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://business.facebook.com" target="_blank" rel="noopener"><strong>https://business.facebook.com</strong></a> → sign in.</li><li>Click <strong>Business Settings</strong> (gear icon, top right) → <strong>Business Info</strong>.</li><li>Open the field reference and fill the values listed.</li><li>Save. Then go to <strong>Billing → Payment Methods</strong> and add a card if not already done.</li><li>Verify in Ads Manager: there should be no red 'Account restricted' or 'Missing info' banner.</li>
+    <li>For each of Days 4–21, draft the caption + select the image (iOS card or article hero) + write the hashtag block.</li><li>Save each into the matching <code>social-dashboard/day-XX.html</code> file.</li><li>Cross-check that no caption repeats and the visual mix alternates iOS cards and article reshares.</li><li>Bookmark the dashboard root for tomorrow.</li>
   </ul>
 
-
-    <a class="doc-link" href="meta-business.html" target="_blank" rel="noopener">Open Meta Business setup reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_meta-business.png" target="_blank" rel="noopener">Open Meta Business logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-
-    <div class="warn">Without this, the IG ads on Day 5 simply won't deliver. Verify TODAY — Meta sometimes takes 24h to approve new business info.</div>
-    
-  
-
-  <div class="expected">Meta Business account in good standing, Ads Manager unblocked.</div>
+  <div class="expected">Days 4–21 dashboard content drafted. Daily tax going forward is 5 minutes.</div>
   </div>
 </div>
 
@@ -162,7 +128,7 @@
 <div class="eod">
   <h2>End of Day 3 Checklist</h2>
   <ul>
-    <li>GBP deferred + noted in tracker</li><li>Startup Stash submitted</li><li>Fazier submitted</li><li>BetaBound submitted</li><li>Meta Business info filled, ads unblocked</li>
+    <li>IG hashtag backlog cleaned</li><li>IG + FB carved out of post_social.py</li><li>AUTOMATION.md updated</li><li>social-dashboard scaffold live</li><li>Days 4–21 dashboard content pre-populated</li>
   </ul>
   <div class="total">Expected signups today: <strong>0</strong>  ·  Total spend: <strong>$0</strong></div>
 </div>

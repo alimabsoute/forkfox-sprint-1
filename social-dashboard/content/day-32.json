@@ -1,0 +1,26 @@
+{
+  "day": 32,
+  "date": "2026-06-12",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/06_bushwick_burlingame.png",
+      "caption_ig": "Where do you actually live? The 6 blocks around you have ~15 restaurants. ForkFox tells you which dish at which block-radius restaurant is actually worth your walk. The map is opinionated.\n\n#ForkFox #PhillyEats #BayAreaEats #FoodSmart #DishNotRestaurant",
+      "caption_fb": "Most food apps assume you'll travel. ForkFox assumes you live somewhere specific. The 6 blocks around your apartment have 15 restaurants. We tell you which dish at which one of those is actually worth walking to — not because it's the best in the city, but because it's the best within walking distance.",
+      "hashtags": [
+        "#ForkFox",
+        "#PhillyEats",
+        "#BayAreaEats",
+        "#FoodSmart",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "Dark-mode neighborhood map with a 6-block radius circle. 15 restaurant dots inside, one highlighted red. Editorial graphic. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 8s. Animation zooms from city-wide map to a single 6-block neighborhood. Radius circle draws around 'YOU'. Pins illuminate. Best one glows red. Text: 'Within walking distance.'",
+      "suggested_time_iso": "2026-06-12T09:15:00-04:00"
+    }
+  ]
+}

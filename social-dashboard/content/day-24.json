@@ -1,0 +1,26 @@
+{
+  "day": 24,
+  "date": "2026-06-04",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/04_why_one.png",
+      "caption_ig": "Stars don't survive scrutiny. A 4.5-star restaurant has 800 reviews of kitchen sink dishes mixed with one mind-blowing pasta. Average kills signal. We score the pasta on its own.\n\n#ForkFox #FoodRanked #DishNotRestaurant #FoodSmart #FoodScience",
+      "caption_fb": "Restaurant stars are an average of every dish, every visit, every server, every Tuesday morning vs Saturday night. The signal you actually want — is THIS dish worth ordering — is buried. We score the dish. Stars don't show up in our app.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodRanked",
+        "#DishNotRestaurant",
+        "#FoodSmart",
+        "#FoodScience"
+      ],
+      "image_gen_prompt": "Star icons (5 of them) crossed out with red lines, replaced by a glowing red #1 rank badge. Dark moody background. Editorial graphic. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 6s. Five stars on screen. They flicker and vanish. A red #1 takes their place. Text: 'Stars don't survive scrutiny.'",
+      "suggested_time_iso": "2026-06-04T09:15:00-04:00"
+    }
+  ]
+}

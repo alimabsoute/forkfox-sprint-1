@@ -1,0 +1,26 @@
+{
+  "day": 22,
+  "date": "2026-06-02",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "novel_post",
+      "image_url": "../_assets/app-store/03_ask_anything.png",
+      "caption_ig": "AVPN-certified means the pizza is made by a Naples-trained pizzaiolo, in a wood-burning oven over 900°F, with San Marzano tomatoes, in 60-90 seconds. There are ~12 AVPN-certified spots in the Bay. We've scored all of them.\n\n#ForkFox #Pizza #BayAreaEats #FoodAI #DishNotRestaurant",
+      "caption_fb": "AVPN — Associazione Verace Pizza Napoletana — is the Neapolitan pizza body that certifies which spots make pizza the actual Naples way. Wood oven over 900°F, San Marzano tomatoes, 60-90 second bake, specific dough hydration. Ask ForkFox 'AVPN pizza near me' and the answer is exact.",
+      "hashtags": [
+        "#ForkFox",
+        "#Pizza",
+        "#BayAreaEats",
+        "#FoodAI",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "A Neapolitan pizza pulled from a wood-fired oven, edge of the dome glowing. Editorial cinematic lighting. Soft smoke. 1080x1080.",
+      "video_gen_prompt": "Vertical 9:16, 8s. Wood-fired pizza oven, pizza going in. Temperature gauge ticks up to 950°F. 60-second timer. Pizza comes out, perfect leoparding. Text: 'AVPN-certified means this.'",
+      "suggested_time_iso": "2026-06-02T09:15:00-04:00"
+    }
+  ]
+}

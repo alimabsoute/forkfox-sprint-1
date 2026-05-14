@@ -1,0 +1,26 @@
+{
+  "day": 17,
+  "date": "2026-05-28",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/04_why_one.png",
+      "caption_ig": "Why this is the #1 pick. Execution. Meat. Tortilla. Value. Salsa. Receipts included. Every rank shows the scorecard behind it — no algorithm black box, no 'because we said so.'\n\n#ForkFox #FoodRanked #DishNotRestaurant #FoodScience #FoodSmart",
+      "caption_fb": "When we say a dish is #1, we show you why. Every rank comes with a scorecard — execution, ingredient quality, ratio, value, ambiance — and you can see exactly where it scored. No black-box algorithm. No 'trust us.' Just the receipts.",
+      "hashtags": [
+        "#ForkFox",
+        "#FoodRanked",
+        "#DishNotRestaurant",
+        "#FoodScience",
+        "#FoodSmart"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 7 seconds. Pulls in on a #1-ranked taco. Radar-chart scoring overlay animates in (meat / tortilla / value / salsa / execution). End frame: 'Why this is #1.' with '#1' in red. Confident, editorial.",
+      "suggested_time_iso": "2026-05-28T09:15:00-04:00"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ForkFox Sprint · Day 2 · Directory Blitz</title>
+<title>ForkFox Sprint · Day 2 · iOS Finals + Brand Kit + Pipeline + Deploy Fix (Backfill)</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -11,14 +11,14 @@
 
 <div class="header">
   <a class="back-link" href="../index.html">Back to sprint overview</a>
-  <div class="eyebrow">ForkFox Sprint · Week 1</div>
-  <h1>Day 2 · Directory Blitz</h1>
-  <div class="meta">Tuesday, May 13, 2026</div>
-  <div class="total-time">⏱ Total time: 2 hours</div>
+  <div class="eyebrow">ForkFox Sprint · Week 1 · ✅ Completed</div>
+  <h1>Day 2 · iOS Finals + Brand Kit + Pipeline + Deploy Fix</h1>
+  <div class="meta">Tuesday, May 13, 2026 · BACKFILL</div>
+  <div class="total-time">⏱ Total time: ~6 hours (completed)</div>
 </div>
 
 <div class="theme-bar">
-  <strong>Today's focus:</strong> 4 more directory listings (AlternativeTo, Peerlist, Uneed, AppAdvice) and verify the top 5 Tier B influencers in the database.
+  <strong>Today's focus:</strong> Backfill of work already done. Finalized iOS App Store cards, shipped brand kit v1, bumped Dish + Carte article pipeline cadence, and closed the GitHub→Vercel deploy race that was breaking forkfox.ai.
 </div>
 
 
@@ -26,29 +26,25 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">1</div>
-    <div class="task-title">AlternativeTo submission</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">20 min</span></div>
-    <div class="time-badge">⏱ 20 min</div>
+    <div class="task-title">✅ Finalized 10 iOS App Store cards (DONE)</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">120 min</span></div>
+    <div class="time-badge">⏱ 120 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Most valuable long-tail SEO directory you'll hit. People search 'Yelp alternatives' and find you. DA 89.</p>
+  <p class="intro">Rendered the 10 1290×2796 editorial cards from yesterday's locked spec. Each card uses a real iPhone 15 Pro frame, locked typography, and an editorial headline-and-screenshot composition.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://alternativeto.net" target="_blank" rel="noopener"><strong>https://alternativeto.net</strong></a> → click <strong>Submit a new application</strong>.</li><li>Sign up with <strong>admin@forkfox.ai</strong>.</li><li>Open the field reference below — note especially the 'Alternative to' field with all 5 entries.</li><li>License: <strong>Freemium</strong>. Platforms: <strong>iOS</strong>.</li><li>Submit. Editorial review: 3-7 days.</li>
+    <li>Batch-rendered all 10 cards at 1290×2796 (App Store native).</li><li>Verified iPhone 15 Pro frame alignment + safe-area on every card.</li><li>Confirmed each headline lands inside the locked typography rules (no overflow, no widows).</li><li>Saved final PNGs into <code>_assets/app-store/</code>.</li>
   </ul>
 
+  <a class="image-link" href="../_assets/app-store/01_outsmart.png" target="_blank" rel="noopener">Card 01 — Outsmart any menu</a>
+  <a class="image-link" href="../_assets/app-store/02_rank.png" target="_blank" rel="noopener">Card 02 — We rank dishes. Not restaurants.</a>
+  <a class="image-link" href="../_assets/app-store/03_ask.png" target="_blank" rel="noopener">Card 03 — Ask anything. Get the truth.</a>
+  <a class="image-link" href="../_assets/app-store/04_pick.png" target="_blank" rel="noopener">Card 04 — Why this is the #1 pick</a>
+  <a class="image-link" href="../_assets/app-store/05_anatomy.png" target="_blank" rel="noopener">Card 05 — The anatomy of every dish</a>
 
-    <a class="doc-link" href="alternativeto.html" target="_blank" rel="noopener">Open AlternativeTo field reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_alternativeto.png" target="_blank" rel="noopener">Open AlternativeTo logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-
-    <div class="warn">The 'Alternative to' field is what makes AlternativeTo work. Enter ALL FIVE alternatives or you cut discoverability by 5x.</div>
-    
-  
-
-  <div class="expected">0 today. 5-30 organic visitors per month once approved (compounds).</div>
+  <div class="expected">All 10 cards locked, App-Store-ready PNGs in repo.</div>
   </div>
 </div>
 
@@ -56,30 +52,25 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">2</div>
-    <div class="task-title">Peerlist project page</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">15 min</span></div>
-    <div class="time-badge">⏱ 15 min</div>
+    <div class="task-title">✅ Created brand kit v1 — 10 PNGs (DONE)</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">90 min</span></div>
+    <div class="time-badge">⏱ 90 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Developer-portfolio + project directory. Audience is technical, comfortable with TestFlight.</p>
+  <p class="intro">Shipped the first batch of upload-ready ForkFox logos: native + four widths (100w / 200w / 400w / 600w) across two backgrounds (on-dark and transparent). Every directory submission for the rest of the sprint uses one of these PNGs.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://peerlist.io" target="_blank" rel="noopener"><strong>https://peerlist.io</strong></a> → click <strong>Add Project</strong>.</li><li>Sign up with <strong>ali@forkfox.ai</strong> (identity-driven).</li><li>Open the field reference and paste field by field.</li><li>Status: <strong>Live (Beta)</strong>.</li>
+    <li>Generated native logo + 100w / 200w / 400w / 600w variants.</li><li>Rendered each width in two variants: on-dark and transparent.</li><li>Saved all 10 PNGs to <code>_assets/brand/</code>.</li><li>Smoke-tested 600w upload on a sample directory form.</li>
   </ul>
 
-  
-    <a class="doc-link" href="peerlist.html" target="_blank" rel="noopener">Open Peerlist field reference</a>
-  
-  
-    <a class="image-link" href="../_assets/images/logo_peerlist.png" target="_blank" rel="noopener">Open Peerlist logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo.png" target="_blank" rel="noopener">Open ForkFox cover image (native 637×159)</a>
-  
+  <a class="image-link" href="../_assets/brand/forkfox-logo.png" target="_blank" rel="noopener">Native logo</a>
+  <a class="image-link" href="../_assets/brand/forkfox-logo-100w.png" target="_blank" rel="noopener">100w (transparent)</a>
+  <a class="image-link" href="../_assets/brand/forkfox-logo-200w.png" target="_blank" rel="noopener">200w (transparent)</a>
+  <a class="image-link" href="../_assets/brand/forkfox-logo-400w.png" target="_blank" rel="noopener">400w (transparent)</a>
+  <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">600w (transparent)</a>
 
-  
-
-  <div class="expected">0-2 signups. Tech audience converts 2-3x better for TestFlight.</div>
+  <div class="expected">Brand kit v1 live. Every Day 3+ directory submission has a ready-to-upload logo at the right size.</div>
   </div>
 </div>
 
@@ -87,26 +78,19 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">3</div>
-    <div class="task-title">Uneed submission</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">15 min</span></div>
-    <div class="time-badge">⏱ 15 min</div>
+    <div class="task-title">✅ Updated Dish + Carte article pipeline (DONE)</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">60 min</span></div>
+    <div class="time-badge">⏱ 60 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">Small-but-targeted maker / indie-product directory. Free tier exists.</p>
+  <p class="intro">Bumped article publishing cadence on the existing ForkFox pipeline: +2 Dish articles per week and +2 Carte articles per week. Batch size held constant — only the schedule got hotter.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://www.uneed.best" target="_blank" rel="noopener"><strong>https://www.uneed.best</strong></a></li><li>Sign up with <strong>admin@forkfox.ai</strong>.</li><li>Open the field reference and paste field by field.</li><li>Submit.</li>
+    <li>Reviewed current Dish + Carte cadence in the pipeline config.</li><li>Bumped Dish cadence by +2 articles/week.</li><li>Bumped Carte cadence by +2 articles/week.</li><li>Left the per-run batch size alone to avoid blowing the writer queue.</li><li>Documented the new cadence in the pipeline README.</li>
   </ul>
 
-
-    <a class="doc-link" href="uneed.html" target="_blank" rel="noopener">Open Uneed field reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_uneed.png" target="_blank" rel="noopener">Open Uneed logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-
-
-  <div class="expected">0-1 signups. Engaged maker audience.</div>
+  <div class="expected">Pipeline runs publish 4 more articles/week than they did at start of sprint.</div>
   </div>
 </div>
 
@@ -114,58 +98,21 @@
   <div class="task-head">
     <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
     <div class="task-num">4</div>
-    <div class="task-title">AppAdvice / iOS-app-specific directory</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">20 min</span></div>
-    <div class="time-badge">⏱ 20 min</div>
+    <div class="task-title">✅ Documented + fixed GitHub→Vercel deploy race (DONE)</div>
+    <div class="task-collapsed-meta"><span class="collapsed-time">90 min</span></div>
+    <div class="time-badge">⏱ 90 min</div>
   </div>
 
   <div class="task-body">
-  <p class="intro">AppAdvice is iOS-app-specific — strong fit because their audience already has TestFlight installed.</p>
+  <p class="intro">Closed the auto-deploy regression vector that had been silently breaking forkfox.ai whenever a push and a CLI deploy happened at the same time. Vercel's GitHub integration was deploying a stale empty root build over the real one. Disconnected GitHub auto-deploy on the landing-pages project and replaced it with an explicit GitHub Actions workflow with a concurrency group.</p>
 
   <ul class="step-list">
-    <li>Open <a href="https://appadvice.com" target="_blank" rel="noopener"><strong>https://appadvice.com</strong></a></li><li>Find the <strong>Submit App</strong> or <strong>Tip Us</strong> link in the footer.</li><li>Sign up with <strong>admin@forkfox.ai</strong>.</li><li>Open the field reference and paste field by field.</li><li>Upload 3-5 REAL iPhone screenshots (DALL-E images won't pass review).</li>
+    <li>Disconnected the GitHub→Vercel integration on the landing-pages project.</li><li>Added <code>.github/workflows/deploy-on-push.yml</code> with a concurrency group so two deploys can't race.</li><li>Wrote the full runbook + things-never-to-do + deploy incident log into <code>forkfox/CLAUDE.md</code>.</li><li>Smoke-tested by pushing a trivial change and confirming only one deploy fired.</li>
   </ul>
 
+  <div class="warn">Going forward: ALWAYS push first, then run <code>cd forkfox/landing-pages && vercel --prod --yes</code>. Never trust GitHub auto-deploy here.</div>
 
-    <a class="doc-link" href="appadvice.html" target="_blank" rel="noopener">Open AppAdvice field reference</a>
-
-    <a class="image-link" href="../_assets/images/logo_appadvice.png" target="_blank" rel="noopener">Open AppAdvice logo</a>
-    <a class="image-link" href="../_assets/brand/forkfox-logo-600w.png" target="_blank" rel="noopener">Open ForkFox logo (for upload)</a>
-    <a class="image-link" href="../_assets/app-store/01_outsmart.png" target="_blank" rel="noopener">Open ForkFox screenshot (1290×2796)</a>
-
-    <div class="note">Screenshots must be real iPhone screenshots from the live app. If unavailable, defer to Day 3-4 and note in tracker.</div>
-    
-  
-
-  <div class="expected">0-3 today. 5-15 if AppAdvice features you (1 in 10 chance).</div>
-  </div>
-</div>
-
-<div class="task" data-task-idx="5">
-  <div class="task-head">
-    <button class="task-toggle" type="button" title="Collapse / expand"><span class="toggle-icon">−</span></button>
-    <div class="task-num">5</div>
-    <div class="task-title">Verify top 5 Tier B influencers in the database</div>
-    <div class="task-collapsed-meta"><span class="collapsed-time">10 min</span></div>
-    <div class="time-badge">⏱ 10 min</div>
-  </div>
-
-  <div class="task-body">
-  <p class="intro">The influencer database has 38 rows (15 Tier A + 23 Tier B). Spend 10 min verifying 5 Tier B handles before Day 4-6 DM outreach uses them.</p>
-
-  <ul class="step-list">
-    <li>Open <code>_assets/influencer_database.csv</code> in Excel or Google Sheets.</li><li>Filter to <strong>tier = B</strong>.</li><li>Open the top 5 by relevance (look at 'discovered_via' for Philly-specific queries).</li><li>For each: visit https://www.instagram.com/[handle]/ and verify (1) account exists, (2) food-focused, (3) recent posts, (4) under 50K followers.</li><li>Mark each row: <strong>verified</strong>, <strong>not relevant</strong>, or <strong>account gone</strong>.</li>
-  </ul>
-
-  
-  
-    <a class="image-link" href="../_assets/influencer_database.csv" target="_blank" rel="noopener">Open influencer database CSV</a>
-    <a class="doc-link" href="../_assets/forkfox-influencer-db.csv" target="_blank" rel="noopener">Open influencer database (CSV)</a>
-  
-
-  
-
-  <div class="expected">5 rows verified. Day 4-6 DM outreach uses ONLY verified rows.</div>
+  <div class="expected">Deploy race vector closed. forkfox.ai stable.</div>
   </div>
 </div>
 
@@ -173,9 +120,9 @@
 <div class="eod">
   <h2>End of Day 2 Checklist</h2>
   <ul>
-    <li>AlternativeTo submitted (with all 5 alternatives listed)</li><li>Peerlist project created</li><li>Uneed submitted</li><li>AppAdvice submitted (with real iPhone screenshots)</li><li>Influencer database top-5 Tier B handles verified</li>
+    <li>✅ 10 iOS App Store cards finalized at 1290×2796</li><li>✅ Brand kit v1 shipped (10 PNGs in <code>_assets/brand/</code>)</li><li>✅ Dish + Carte pipeline cadence bumped (+2 / +2 per week)</li><li>✅ GitHub→Vercel deploy race fixed + runbook documented</li>
   </ul>
-  <div class="total">Expected signups today: <strong>0</strong>  ·  Total spend: <strong>$0</strong></div>
+  <div class="total">Status: <strong>Backfilled · complete</strong>  ·  Total spend: <strong>$0</strong></div>
 </div>
 
 </div>

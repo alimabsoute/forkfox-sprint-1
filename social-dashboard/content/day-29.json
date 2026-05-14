@@ -1,0 +1,26 @@
+{
+  "day": 29,
+  "date": "2026-06-09",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "article_reshare",
+      "image_url": "https://forkfox.ai/the-dish/ethiopian-diaspora-west-philly/hero.jpg",
+      "caption_ig": "From Addis to Baltimore Avenue: How West Philly became America's most authentic Ethiopian food corridor. The story Philadelphia's food media missed-and why that matters.\n\nRead the full essay at ForkFox: the real data on diaspora food, community economics, and what happens when a neighborhood stops trying to impress anyone.\n\n#ForkFox #EthiopianFood #Philadelphia #BaltimorAvenue #FoodCulture",
+      "caption_fb": "The best food in Philadelphia has been invisible for forty years. West Philadelphia's Ethiopian restaurants on Baltimore Avenue have quietly been outscoring most of the city's celebrated spots on flavor and value. Read how a diaspora community built something real-and what happens if visibility destroys it.",
+      "hashtags": [
+        "#ForkFox",
+        "#EthiopianFood",
+        "#Philadelphia",
+        "#BaltimorAvenue",
+        "#FoodCulture"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16, 8s. Editorial b-roll of the topic in 'From Addis to America: How Ethiopian Immigration Shaped West Philadelphia's Food Soul'. Calm pace, no music vocals. End frame: article title + 'Link in bio.'",
+      "suggested_time_iso": "2026-06-09T09:15:00-04:00"
+    }
+  ]
+}

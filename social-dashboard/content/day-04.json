@@ -1,0 +1,26 @@
+{
+  "day": 4,
+  "date": "2026-05-15",
+  "platforms": [
+    "instagram",
+    "facebook"
+  ],
+  "slots": [
+    {
+      "type": "feature_spotlight",
+      "image_url": "../_assets/app-store/01_outsmart.png",
+      "caption_ig": "Outsmart any menu. Find the #1 spot for what you're craving — in five seconds. We read thousands of reviews so you don't have to. Tap any dish to see why it ranks where it does. Free iOS beta.\n\n#ForkFox #PhillyEats #BayAreaEats #FoodRanked #DishNotRestaurant",
+      "caption_fb": "Most restaurant apps tell you a place is 4.3 stars. They don't tell you if THIS DISH at that place is worth ordering. ForkFox does. We read thousands of reviews, score the actual dish on what makes it great, and surface the #1 pick near you in five seconds. Free iOS beta open now.",
+      "hashtags": [
+        "#ForkFox",
+        "#PhillyEats",
+        "#BayAreaEats",
+        "#FoodRanked",
+        "#DishNotRestaurant"
+      ],
+      "image_gen_prompt": "",
+      "video_gen_prompt": "Vertical 9:16 video, 8 seconds. Camera tracks across a moody, restaurant-lit table. Dishes scroll past. A red glowing #1 tag appears over one dish. Hand-drawn line drawings of forks and crossed knives between dishes. End frame: dark background, white text 'Outsmart any menu.' in heavy Geologica Black, accent word 'any' in red. ForkFox logo bottom-left. Calm, editorial, no music vocals.",
+      "suggested_time_iso": "2026-05-15T09:15:00-04:00"
+    }
+  ]
+}
